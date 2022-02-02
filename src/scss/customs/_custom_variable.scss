@@ -44,9 +44,16 @@ $red: #dd5571 !default;
 $orange: #fd7e14 !default;
 $yellow: #f8d277 !default;
 $lemon: #f2d555 !default;
-$green: #050505 !default;
+$green: #198754 !default;
 $teal: #61d3a4 !default;
 $cyan: #3e89ae !default;
+$gun: #373737 !default;
+$ash: #999999 !default;
+$mint: #f0f2e9 !default;
+$cloud: #eceeef !default;
+$cream: #f9f5e4 !default;
+$vogue: #e3e3e3 !default;
+$wheat: #f8f8f8 !default;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -58,10 +65,19 @@ $colors: (
   'red': $red,
   'orange': $orange,
   'yellow': $yellow,
+  'lemon': $lemon,
   'green': $green,
   'teal': $teal,
   'cyan': $cyan,
   'white': $white,
+  'black': $black,
+  'gun': $gun,
+  'ash': $ash,
+  'mint': $mint,
+  'cloud': $cloud,
+  'cream': $cream,
+  'vogue': $vogue,
+  'wheat': $wheat,
   'gray': $gray-600,
   'gray-dark': $gray-800,
 ) !default;
@@ -69,8 +85,8 @@ $colors: (
 
 // scss-docs-start theme-color-variables
 $primary: $blue !default;
-$secondary: $gray-600 !default;
-$success: $green !default;
+$secondary: $lemon !default;
+$success: $teal !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
@@ -88,6 +104,15 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'gun': $gun,
+  'black': $black,
+  'ash': $ash,
+  'white': $white,
+  'mint': $mint,
+  'cloud': $cloud,
+  'cream': $cream,
+  'vogue': $vogue,
+  'wheat': $wheat,
 ) !default;
 // scss-docs-end theme-colors-map
 

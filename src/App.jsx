@@ -1,9 +1,7 @@
-import BootstrapComponents from './pages/BootstrapComponents';
-
 function App() {
   return (
     <div>
-      <BootstrapComponents />
+      <h1>Sweethome</h1>
     </div>
   );
 }
