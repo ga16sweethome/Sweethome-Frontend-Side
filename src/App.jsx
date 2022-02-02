@@ -1,7 +1,9 @@
+import ProductHighlight from './components/ProductHighlight'
+
 function App() {
   return (
     <div>
-      <h1>Sweethome</h1>
+      <ProductHighlight/>
     </div>
   );
 }
