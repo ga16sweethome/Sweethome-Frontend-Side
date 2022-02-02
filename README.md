@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Manual Book
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Cara menggunakan package ini
 
-In the project directory, you can run:
+### Clone branch `development`
 
-### `yarn start`
+```
+git clone -b development <remote url>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**clone menggunakan remote https :**
 
-### `yarn test`
+```
+git clone -b development https://gitlab.com/binarxglints_batch16/finalproject/sweet-home/fe_sweethome.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**clone menggunakan remote ssh :**
 
-### `yarn build`
+```
+git clone -b development git@gitlab.com:binarxglints_batch16/finalproject/sweet-home/fe_sweethome.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+package ini menggunakan **`yarn`** sebagai package manager
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn install
+```
 
-### `yarn eject`
+<br/>
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Branching
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Master/Main
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Branch utama dalam project kita.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Development
 
-## Learn More
+Digunakan untuk menampung fitur-fitur yang sudah di kerjakan di dalam branch **Feature**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Feature
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Digunakan untuk membuat fitur-fitur pada project kita dan jika sudah fix, akan di merge di branch development.
 
-### Code Splitting
+### Release
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Digunakan untuk production, biasanya digunakan ketika sudah selesai di branch develop.
 
-### Analyzing the Bundle Size
+### Hotfix
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Digunakan untuk melakukan pembenahan bug pada saat sudah rilis.
 
-### Making a Progressive Web App
+### Membuat `feature` baru
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+buat branch baru diawali dengan `feature/`
 
-### Advanced Configuration
+```
+git checkout -b feature/featureName
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Merge branch `feature` ke branch `development`
 
-### Deployment
+pindah ke branch `development` lalu merge branch `feature` yang diinginkan
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+git checkout development
+git merge feature/featureName
+```
 
-### `yarn build` fails to minify
+### Berbagi components dengan feature lain
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+pastikan components yang ingin digunakan telah di push terlebih dahulu dan di merge ke branch development
+
+```
+git checkout development
+git pull origin development
+git checkout feature/featureSekarang
+git merge development
+```
