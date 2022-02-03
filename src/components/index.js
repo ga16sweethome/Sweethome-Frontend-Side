@@ -1,0 +1,1 @@
+export {default as DesignerBiografiSection} from './homepages/DesignerBiografiSection' 
