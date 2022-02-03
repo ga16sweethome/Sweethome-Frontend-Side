@@ -12,7 +12,7 @@ const WhatWeDoSection = () => {
         </Col>
         <Col xs='12' sm='6' md>
           <Card bg='secondary' text='dark' className='p-3'>
-            <PenIcons />
+            {/* <PenIcons /> */}
             <Card.Title>Plan</Card.Title>
             <Card.Text>
               <b>Lorem ipsum dolor sit amet.</b>
@@ -28,7 +28,7 @@ const WhatWeDoSection = () => {
         </Col>
         <Col xs='12' sm='6' md>
           <Card bg='vogue' text='dark' className='p-3'>
-            <PaperPlane />
+            {/* <PaperPlane /> */}
             <Card.Title>Collaborate</Card.Title>
             <Card.Text>
               <b>Lorem ipsum dolor sit amet.</b>
@@ -44,7 +44,7 @@ const WhatWeDoSection = () => {
         </Col>
         <Col xs='12' sm='6' md>
           <Card bg='cloud' text='dark' className='p-3'>
-            <CupOfCoffee />
+            {/* <CupOfCoffee/> */}
             <Card.Title>Execute</Card.Title>
             <Card.Text>
               <b>Lorem ipsum dolor sit amet.</b>

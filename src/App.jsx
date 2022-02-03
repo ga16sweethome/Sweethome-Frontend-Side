@@ -1,9 +1,9 @@
-import ProductHighlight from './components/ProductHighlight'
+import {HomePage} from './pages';
 
 function App() {
   return (
     <div>
-      <ProductHighlight/>
+      <HomePage/>
     </div>
   );
 }
