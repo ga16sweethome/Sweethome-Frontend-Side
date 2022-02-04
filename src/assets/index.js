@@ -1,3 +1,3 @@
-export { default as PenIcons } from './icons/svg/PenIcons';
-export { default as PaperPlane } from './icons/svg/PaperPlane';
-export { default as CupOfCoffee } from './icons/svg/CupOfCoffee';
+export { default as PenIcons } from './icons/svg/PenIcons.jsx';
+export { default as PaperPlane } from './icons/svg/PaperPlane.jsx';
+export { default as CupOfCoffee } from './icons/svg/CupOfCoffee.jsx';
