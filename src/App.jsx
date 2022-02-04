@@ -1,9 +1,9 @@
-import {HomePage} from './pages';
+import { Showcase } from './pages';
 
 function App() {
   return (
     <div>
-      <HomePage/>
+      <Showcase />
     </div>
   );
 }
