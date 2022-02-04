@@ -1,0 +1,25 @@
+.ProjectCard {
+  &:hover {
+    bottom: 4px;
+    box-shadow: 0px 8px 10px rgba(33, 68, 87, 0.5);
+  }
+  img {
+    height: 240px;
+    object-fit: cover;
+  }
+  .card-title,
+  .card-subtitle,
+  .card-text {
+    font-size: 14px;
+  }
+
+  .estimated-time {
+    margin-bottom: 2px;
+    position: relative;
+    top: -2px;
+  }
+
+  .card-text {
+    height: 16px;
+  }
+}
