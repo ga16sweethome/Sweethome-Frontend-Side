@@ -1,11 +1,14 @@
 import React from 'react';
-import { ProjectCard } from '../components';
+import { FilterCheckbox, ProjectCard } from '../components';
 
 const Showcase = () => {
   return (
     <div className='Showcase'>
       <h1>Showcase</h1>
-      <div className='m-5'>
+      <div className='filter'>
+        <FilterCheckbox />
+      </div>
+      <div className='projects'>
         <ProjectCard />
       </div>
     </div>

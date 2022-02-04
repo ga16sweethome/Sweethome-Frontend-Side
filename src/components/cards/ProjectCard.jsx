@@ -1,9 +1,12 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ProjectCard = () => {
   return (
-    <Card className='ProjectCard w-50'>
+    <Link
+      to='/'
+      className='ProjectCard card text-decoration-none text-dark shadow-sm w-50'>
       <Card.Img
         variant='top'
         src='https://pertaniansehat.com/v01/wp-content/uploads/2015/08/default-placeholder.png'
@@ -18,7 +21,7 @@ const ProjectCard = () => {
           <Card.Text>Rp.70,000,000</Card.Text>
         </div>
       </Card.Body>
-    </Card>
+    </Link>
   );
 };
 
