@@ -1,8 +1,12 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import { NavbarSection } from "../components";
 
 const LandingPage = (props) => {
-  return <div className='LandingPage overflow-visible'>{props.children}</div>;
+  return (
+    <>
+    <NavbarSection />
+    <div className='LandingPage container'>{props.children}</div>
+   </> 
+  );
 };
 
 export default LandingPage;

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
-import { WhatWeDoSection } from '../components';
+import { ProductHighlight, OurWorkSection, WhatWeDoSection } from '../components';
 import LandingPage from '../layouts/LandingPage';
 
 
 const HomePage = () => {
   return (
-    <LandingPage>
-      <Navbar />
+    <div className='homepage'>
       <WhatWeDoSection />
-    </LandingPage>
+      <OurWorkSection />
+      <ProductHighlight/>
+    </div>
   );
 };
 
