@@ -2,13 +2,6 @@ import kitchen from '../../assets/kitchen.jpg';
 
 const ProductHighlight = () =>{
    return(
-      // <div className="productHighlight">
-      //    <div className="productImage" >
-      //       <div className="ideasBar bg-primary">
-
-      //       </div>
-      //    </div>
-      // </div>
       <div className="productHighlight d-flex">
          <div className="contentImage card">
             <img src={kitchen} className="card-img" alt="..."/>
@@ -35,7 +28,5 @@ const ProductHighlight = () =>{
 };
 
 export default ProductHighlight;
-
-// style={{backgroundImage: `url(${kitchen})`}}
 
 

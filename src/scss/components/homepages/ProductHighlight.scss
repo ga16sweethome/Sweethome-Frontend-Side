@@ -1,16 +1,20 @@
-.contentImage, .card{
-   border:0;
+.contentImage{
+   border:none !important;
    .contentOverlay{
       padding:0;
+
       .ideasBar{
          width:65%;
          height:80px;
          margin-bottom:80px;
+
          .categoryFilter{
             width:80%;
+
             .form-select{
                border:none;
                background-color: transparent;
+               
                option{
                   color: black;
                }
