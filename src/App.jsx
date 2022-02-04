@@ -1,4 +1,5 @@
-import {HomePage} from './pages'
+import {HomePage} from './pages';
+
 function App() {
   return (
     <div>

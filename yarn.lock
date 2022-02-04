@@ -3756,6 +3756,13 @@ dom-serializer@^1.0.1:
     domhandler "^4.2.0"
     entities "^2.0.0"
 
+dom7@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-4.0.4.tgz#8b68c5d8e5e2ed0fddb1cb93e433bc9060c8f3fb"
+  integrity sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==
+  dependencies:
+    ssr-window "^4.0.0"
+
 domelementtype@1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
@@ -7804,6 +7811,11 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+react-icons@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
+  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
+
 react-is@^16.13.1, react-is@^16.3.2, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -8639,6 +8651,11 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+ssr-window@^4.0.0, ssr-window@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
+  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
+
 ssri@^8.0.0, ssri@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-8.0.1.tgz#638e4e439e2ffbd2cd289776d5ca457c4f51a2af"
@@ -8892,6 +8909,14 @@ sweetalert2@^11.3.10:
   version "11.3.10"
   resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.3.10.tgz#7d6c904c95edb50ac37200b1bd528fe47b827edf"
   integrity sha512-/3nhG5QCREkPUndAbOF9h1IM7lgCIU/evsNXd/YUfa9eJ04M+hxksxIio8hhtH16UnWd2GvJ+zvFQ8H9hLRhsw==
+
+swiper@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.0.2.tgz#e25646eb67dad21569b6651a71ba60b6ad709f0e"
+  integrity sha512-X8TRwHzLX9H66/12vDDrnzBkeNwFxbGZz80hP3Ai3trs9kjUqRRIKQJpLTnjxms/MxcBMu/wduWdbIPeKAdhkA==
+  dependencies:
+    dom7 "^4.0.4"
+    ssr-window "^4.0.2"
 
 symbol-tree@^3.2.4:
   version "3.2.4"

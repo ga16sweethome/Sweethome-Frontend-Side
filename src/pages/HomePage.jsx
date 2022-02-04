@@ -1,12 +1,15 @@
 import React from 'react';
-import { DesignerBiografiSection } from '../components';
-import LandingPage from '../layouts/LandingPage';
+import { ProductHighlight, OurWorkSection, WhatWeDoSection, DesignerBiografiSection } from '../components';
+
 
 const HomePage = () => {
   return (
-    <LandingPage>
+    <div className='homepage'>
+      <WhatWeDoSection />
+      <OurWorkSection />
+      <ProductHighlight/>
       <DesignerBiografiSection/>
-    </LandingPage>
+    </div>
   );
 };
 
