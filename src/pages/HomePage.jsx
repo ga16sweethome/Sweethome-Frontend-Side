@@ -1,13 +1,16 @@
 import React from 'react';
-import { ProductHighlight, OurWorkSection, WhatWeDoSection } from '../components';
-import LandingPage from '../layouts/LandingPage';
+import {
+  ProductHighlight,
+  OurWorkSection,
+  WhatWeDoSection,
+} from '../components';
 
 const HomePage = () => {
   return (
     <div className='homepage'>
       <WhatWeDoSection />
       <OurWorkSection />
-      <ProductHighlight/>
+      <ProductHighlight />
     </div>
   );
 };

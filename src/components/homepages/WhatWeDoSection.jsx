@@ -1,11 +1,11 @@
 import { Card, Col, Row } from 'react-bootstrap';
 import { CupOfCoffee, PaperPlane, PenIcons } from '../../assets';
-import LandingPage from '../../layouts/LandingPage';
+import Dashboard from '../../layouts/Dashboard';
 
 const WhatWeDoSection = () => {
   return (
     <div className='WhatWeDoSection bg-primary container-fluid'>
-      <LandingPage>
+      <Dashboard>
         <Row className='g-0'>
           <Col xs='12' sm='6' md='2'>
             <Card bg='primary' text='light' className='p-3'>
@@ -52,7 +52,7 @@ const WhatWeDoSection = () => {
             </Card>
           </Col>
         </Row>
-      </LandingPage>
+      </Dashboard>
     </div>
   );
 };
