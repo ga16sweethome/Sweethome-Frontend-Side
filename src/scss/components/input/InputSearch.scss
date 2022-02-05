@@ -1,0 +1,17 @@
+.InputSearch {
+  border: 1px solid $ash;
+
+  .form-control {
+    border: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .input-group-text {
+    background: none;
+    border: none;
+    color: $ash;
+  }
+}

@@ -1,0 +1,8 @@
+.FilterCheckbox {
+  input,
+  label {
+    &:hover {
+      cursor: pointer !important;
+    }
+  }
+}

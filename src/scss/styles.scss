@@ -70,10 +70,15 @@
 }
 
 // Custom Stylings SCSS
-@import url('./layouts/LandingPage.scss');
+@import './layouts/LandingPage.scss';
 
-@import url('./components/cards/ProjectCard.scss');
+@import './pages/Showcase.scss';
 
-@import url('./components/homepages/WhatWeDoSection.scss');
-@import url('./components/homepages/OurWorkSection.scss');
-@import url('./components/homepages/ProductHighlight.scss');
+@import './components/cards/ProjectCard.scss';
+
+@import './components/homepages/WhatWeDoSection.scss';
+@import './components/homepages/OurWorkSection.scss';
+@import './components/homepages/ProductHighlight.scss';
+
+@import './components/input/InputSearch.scss';
+@import './components/input/FilterCheckbox.scss';

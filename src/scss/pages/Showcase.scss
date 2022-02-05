@@ -1,0 +1,25 @@
+.Showcase {
+  h2 {
+    width: 65%;
+  }
+
+  .showcase-wrapper {
+    .filter {
+      .btn {
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .projects {
+      .pagination {
+        .page-item {
+          .page-link {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
