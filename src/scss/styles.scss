@@ -70,9 +70,9 @@
 }
 
 // Custom Stylings SCSS
-@import url('./layouts/LandingPage.scss');
+@import './layouts/LandingPage.scss';
 
-@import url('./components/cards/ProjectCard.scss');
+@import './pages/Showcase.scss';
 
 @import url('./components/homepages/WhatWeDoSection.scss');
 @import url('./components/homepages/OurWorkSection.scss');

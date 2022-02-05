@@ -4,3 +4,4 @@ export { default as ProductHighlight } from './homepages/ProductHighlight';
 export { default as OurWorkSection } from './homepages/OurWorkSection';
 export { default as NavbarSection } from './navbar/NavbarSection.jsx';
 export { default as FilterCheckbox } from './input/FilterCheckbox';
+export { default as InputSearch } from './input/InputSearch';
