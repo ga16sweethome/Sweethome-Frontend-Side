@@ -5,6 +5,7 @@ function App() {
     <div>
       <HomePage />
       <Showcase />
+      {/* <HomePage/> */}
     </div>
   );
 }
