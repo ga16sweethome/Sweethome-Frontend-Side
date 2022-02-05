@@ -21,8 +21,8 @@ const ProductHighlight = () =>{
          <div className="contentImage card mx-auto">
             <img src={image} className="card-img imageHighlight" alt="..."/>
             <div className="contentOverlay d-flex align-items-end card-img-overlay">
-              <div className="ideasBar d-flex bg-primary">
-                 <div className="categoryFilter d-flex align-items-center justify-content-between m-auto text-light">
+               <div className="ideasBar d-flex bg-primary">
+                  <div className="categoryFilter d-flex align-items-center justify-content-between m-auto text-light">
                      <div className="ideaCaption">Get currated renovation idea for your</div>
                      <div className="filterSelect">
                         <select 
@@ -39,14 +39,13 @@ const ProductHighlight = () =>{
                      <div className="seeAllButton">
                         <button type="submit" className="btn px-4 btn-secondary"><b>See All</b></button>
                      </div>
-                 </div>
-              </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
-   )
+  );
 };
 
 export default ProductHighlight;
-
 

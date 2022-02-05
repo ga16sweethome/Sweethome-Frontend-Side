@@ -1,6 +1,6 @@
 import KitchenCard from '../../assets/img/kitchen-card.png';
 import { HiArrowSmRight } from 'react-icons/hi';
-import LandingPage from '../../layouts/LandingPage';
+import Dashboard from '../../layouts/Dashboard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Mousewheel, Pagination } from 'swiper';
 import { useState } from 'react';
@@ -36,7 +36,7 @@ const OurWorkSection = () => {
 
   return (
     <div className='OurWorkSection'>
-      <LandingPage>
+      <Dashboard>
         <div className='content-wrapper d-flex align-items-center flex-column-reverse flex-lg-row py-5 px-3'>
           <div className='content-text text-light d-flex flex-column'>
             <h2 className='serif text-light flex-grow-0 flex-lg-grow-1 h1'>
@@ -83,7 +83,7 @@ const OurWorkSection = () => {
             })}
           </Swiper>
         </div>
-      </LandingPage>
+      </Dashboard>
     </div>
   );
 };
