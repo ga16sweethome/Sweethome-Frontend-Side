@@ -74,11 +74,7 @@
 
 @import './pages/Showcase.scss';
 
-@import './components/cards/ProjectCard.scss';
-
-@import './components/homepages/WhatWeDoSection.scss';
-@import './components/homepages/OurWorkSection.scss';
-@import './components/homepages/ProductHighlight.scss';
-
-@import './components/input/InputSearch.scss';
-@import './components/input/FilterCheckbox.scss';
+@import url('./components/homepages/WhatWeDoSection.scss');
+@import url('./components/homepages/OurWorkSection.scss');
+@import url('./components/homepages/ProductHighlight.scss');
+@import url('./components/navbar/NavbarSection.scss');

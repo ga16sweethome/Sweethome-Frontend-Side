@@ -1,21 +1,56 @@
-.contentImage, .card{
-   border:0;
+.contentImage{
+   border:none !important;
+   width: 1440px;
+
    .contentOverlay{
       padding:0;
+
       .ideasBar{
          width:65%;
          height:80px;
          margin-bottom:80px;
+
          .categoryFilter{
             width:80%;
+
+            .ideaCaption{
+               margin-left:50px;
+            }
+
             .form-select{
                border:none;
                background-color: transparent;
+               
                option{
                   color: black;
                }
             }
          }
       }
+      @media only screen and (max-width: 768px) {
+         .ideasBar {
+            width:100%;
+            height:60px;
+            margin-bottom:0;
+
+            .categoryFilter{
+               width:85%;
+   
+               .ideaCaption{
+                  margin-left:0px;
+               }
+   
+               .form-select{
+                  border:none;
+                  background-color: transparent;
+                  
+                  option{
+                     color: black;
+                  }
+               }
+            }
+         }
+
+       }
    }
 }
