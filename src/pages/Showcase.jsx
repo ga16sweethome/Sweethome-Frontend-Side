@@ -1,6 +1,11 @@
-import { Breadcrumb, Pagination } from 'react-bootstrap';
+import { Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FilterCheckbox, InputSearch, ProjectCard } from '../components';
+import {
+  FilterCheckbox,
+  InputSearch,
+  PaginationComponents,
+  ProjectCard,
+} from '../components';
 import Default from '../layouts/Default';
 import { HomeIcons } from '../assets';
 
@@ -29,8 +34,8 @@ const Showcase = () => {
   return (
     <>
       <Default>
-        <div className='Showcase'>
-          <Breadcrumb className='py-3'>
+        <div className='Showcase py-5'>
+          <Breadcrumb className='mt-4 py-3'>
             <span className='text-ash me-3'>
               <HomeIcons />
             </span>
@@ -70,16 +75,7 @@ const Showcase = () => {
                 <ProjectCard />
               </div>
               <div className='d-flex justify-content-end mb-5'>
-                <Pagination>
-                  <Pagination.Prev />
-                  <Pagination.Item active>{1}</Pagination.Item>
-                  <Pagination.Item>{2}</Pagination.Item>
-                  <Pagination.Item>{3}</Pagination.Item>
-                  <Pagination.Item>{4}</Pagination.Item>
-                  <Pagination.Item>{5}</Pagination.Item>
-                  <Pagination.Ellipsis />
-                  <Pagination.Next />
-                </Pagination>
+                <PaginationComponents />
               </div>
             </div>
           </div>
