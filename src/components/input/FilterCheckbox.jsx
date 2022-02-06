@@ -8,16 +8,17 @@ import {
 const FilterCheckbox = (props) => {
   const data = props.data;
   const title = props.title;
-  const { sections, styles } = useSelector((state) => state.filter);
+  const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   const handleCheckbox = (e) => {
-    const category = e.target.value;
+    const key = e.target.value;
+    const checked = e.target.checked;
     switch (title) {
       case 'Sections':
-        return dispatch(setSectionsFilter({ sections, category }));
+        return dispatch(setSectionsFilter({ key, checked }));
       case 'Styles':
-        return dispatch(setStylesFilter({ styles, category }));
+        return dispatch(setStylesFilter({ key, checked }));
       default:
         break;
     }
@@ -31,6 +32,7 @@ const FilterCheckbox = (props) => {
           <Form.Check
             key={idx}
             type='checkbox'
+            checked={filter[title.toLowerCase()][element]}
             value={element}
             id={element}
             label={element}

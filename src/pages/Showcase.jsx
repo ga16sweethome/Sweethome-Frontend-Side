@@ -8,33 +8,19 @@ import {
 } from '../components';
 import Default from '../layouts/Default';
 import { HomeIcons } from '../assets';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetFilter } from '../redux/actionCreators/filterAction';
 
 const Showcase = () => {
-  const sectionsCategories = [
-    'Living Room',
-    'Dining Room',
-    'Bedroom',
-    'Kitchen',
-    'Bathroom',
-    'Study/Office',
-    'Outdoor',
-  ];
-
-  const stylesCategories = [
-    'Modern',
-    'Contemporary',
-    'Minimalist',
-    'Industrial',
-    'Scandinavian',
-    'Traditional',
-    'Natural',
-    'Rustic',
-    'Bohemian',
-  ];
-
   const { sections, styles } = useSelector((state) => state.filter);
-  const isFiltered = sections.length !== 0 || styles.length !== 0;
+  const dispatch = useDispatch();
+
+  const sectionsCategories = Object.keys(sections);
+  const stylesCategories = Object.keys(styles);
+
+  const isFiltered =
+    Object.values(sections).find((value) => value === true) ||
+    Object.values(styles).find((value) => value === true);
 
   return (
     <>
@@ -60,7 +46,9 @@ const Showcase = () => {
           <div className='showcase-wrapper row'>
             <div className='col-3 mt-2 filter'>
               {isFiltered ? (
-                <button className='btn btn-link text-decoration-underline mb-2 px-0'>
+                <button
+                  className='btn btn-link text-decoration-underline mb-2 px-0'
+                  onClick={() => dispatch(resetFilter())}>
                   Remove Filter
                 </button>
               ) : (

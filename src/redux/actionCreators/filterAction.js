@@ -1,4 +1,5 @@
 import {
+  RESET_FILTER,
   SET_FILTER_BY_SEARCH,
   SET_FILTER_BY_SECTIONS,
   SET_FILTER_BY_STYLES,
@@ -12,27 +13,27 @@ export const setSearch = (words) => {
 };
 
 export const setSectionsFilter = (data) => {
-  const { sections, category } = data;
-  const isValid = sections.find((value) => value === category);
-  const newArray = isValid
-    ? sections.filter((value) => value !== category)
-    : [...sections, category];
-
+  const { key, checked } = data;
+  const newObject = {};
+  newObject[key] = checked;
   return {
     type: SET_FILTER_BY_SECTIONS,
-    payload: newArray,
+    payload: newObject,
   };
 };
 
 export const setStylesFilter = (data) => {
-  const { styles, category } = data;
-  const isValid = styles.find((value) => value === category);
-  const newArray = isValid
-    ? styles.filter((value) => value !== category)
-    : [...styles, category];
-
+  const { key, checked } = data;
+  const newObject = {};
+  newObject[key] = checked;
   return {
     type: SET_FILTER_BY_STYLES,
-    payload: newArray,
+    payload: newObject,
+  };
+};
+
+export const resetFilter = () => {
+  return {
+    type: RESET_FILTER,
   };
 };
