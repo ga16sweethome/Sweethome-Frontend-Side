@@ -1,10 +1,18 @@
 .Showcase {
   h2 {
     width: 65%;
+
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
   }
 
   .showcase-wrapper {
     .filter {
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
+
       .btn {
         &:focus {
           box-shadow: none;
@@ -17,6 +25,11 @@
     }
 
     .projects {
+      .search {
+        @include media-breakpoint-down(lg) {
+          width: 100% !important;
+        }
+      }
       .pagination {
         .page-item {
           .page-link {

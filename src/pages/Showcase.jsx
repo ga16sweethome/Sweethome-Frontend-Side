@@ -58,7 +58,7 @@ const Showcase = () => {
               <FilterCheckbox title='Styles' data={stylesCategories} />
             </div>
             <div className='projects col'>
-              <div className='search ms-auto mb-3 ps-3 w-50'>
+              <div className='search ms-auto mb-3 ps-lg-3 w-50'>
                 <InputSearch />
               </div>
               <div className='row g-4 mb-4'>
