@@ -1,10 +1,11 @@
-import { Showcase } from './pages';
+import { HomePage, Showcase, DashboardPage } from './pages';
 
 function App() {
   return (
     <div>
-      <Showcase />
-      {/* <HomePage/> */}
+      {/* <HomePage />
+      <Showcase /> */}
+      <DashboardPage/>
     </div>
   );
 }

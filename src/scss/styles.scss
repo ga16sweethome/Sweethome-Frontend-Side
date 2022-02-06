@@ -70,6 +70,7 @@
 }
 
 // Custom Stylings SCSS
+
 @import './layouts/LandingPage.scss';
 @import './pages/Showcase.scss';
 @import './components/homepages/WhatWeDoSection.scss';
@@ -77,5 +78,7 @@
 @import './components/homepages/ProductHighlight.scss';
 @import './components/navbar/NavbarSection.scss';
 @import './components/cards/ProjectCard.scss';
+@import './components/dashboard/Profile.scss';
+@import './components/dashboard/AppointmentResume.scss';
 @import './components/input/FilterCheckbox.scss';
 @import './components/input/InputSearch.scss';

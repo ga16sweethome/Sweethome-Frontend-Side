@@ -1,5 +1,6 @@
 import kitchen from '../../assets/kitchen.jpg';
 import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductHighlight = () =>{
@@ -37,7 +38,14 @@ const ProductHighlight = () =>{
                         </select>
                      </div>
                      <div className="seeAllButton">
-                        <button type="submit" className="btn px-4 btn-secondary"><b>See All</b></button>
+                        <button 
+                        type="submit" 
+                        className="btn px-4 btn-secondary fw-bold" 
+                        linkAs={Link} 
+                        linkProps={{ to: '/' }}
+                        >
+                           See All
+                        </button>
                      </div>
                   </div>
                </div>
