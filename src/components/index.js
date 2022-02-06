@@ -6,3 +6,4 @@ export { default as NavbarSection } from './navbar/NavbarSection.jsx';
 export { default as FilterCheckbox } from './input/FilterCheckbox';
 export { default as Profile } from './dashboard/Profile';
 export { default as DashboardContent } from './dashboard/DashboardContent';
+export { default as InputSearch } from './input/InputSearch';
