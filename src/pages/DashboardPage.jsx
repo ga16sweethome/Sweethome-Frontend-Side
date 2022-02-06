@@ -1,4 +1,4 @@
-import { Profile, DashboardPage } from '../components';
+import { Profile, DashboardContent } from '../components';
 import LandingPage from '../layouts/LandingPage';
 
 
@@ -7,7 +7,7 @@ const DashboardPage = ()=>{
       <LandingPage>
          <div className="dashboardPage">
             <Profile/>
-            <DashboardPage/>
+            <DashboardContent/>
          </div>
       </LandingPage>
    )

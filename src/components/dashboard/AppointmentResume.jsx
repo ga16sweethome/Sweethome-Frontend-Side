@@ -1,11 +1,14 @@
-
+import {Accordion} from 'react-bootstrap'
+import Dashboard from '../../layouts/Dashboard'
 
 const AppointmentResume = ()=>{
    return(
       <div className="appointmentResume">
-         <div className="d-flex">
-
-         </div>
+         <Dashboard>
+            <div className="d-flex bg-secondary mx-auto">
+              
+            </div>
+         </Dashboard>
       </div>
    )
 }
