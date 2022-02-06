@@ -1,3 +1,18 @@
-.contentHeader{
-   width:100% !important;
+.accordion-item{
+   border-radius: 10px !important;
+   border-left : 10px solid;
+   border-right: none;
+   border-top:none;
+   border-bottom:none;
+
+   .accordion-button{
+      border-radius: 10px;
+      border:none;
+   }
+
+   .accordion-button:not(.collapsed) {
+      color: #1e3d4e;
+      background-color: white;
+      box-shadow:none;
+  }
 }
