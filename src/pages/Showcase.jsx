@@ -8,9 +8,10 @@ import {
 } from '../components';
 import Default from '../layouts/Default';
 import { HomeIcons } from '../assets';
+import { useSelector } from 'react-redux';
 
 const Showcase = () => {
-  const sections = [
+  const sectionsCategories = [
     'Living Room',
     'Dining Room',
     'Bedroom',
@@ -20,7 +21,7 @@ const Showcase = () => {
     'Outdoor',
   ];
 
-  const styles = [
+  const stylesCategories = [
     'Modern',
     'Contemporary',
     'Minimalist',
@@ -31,6 +32,10 @@ const Showcase = () => {
     'Rustic',
     'Bohemian',
   ];
+
+  const { sections, styles } = useSelector((state) => state.filter);
+  const isFiltered = sections.length !== 0 || styles.length !== 0;
+
   return (
     <>
       <Default>
@@ -54,11 +59,15 @@ const Showcase = () => {
           </p>
           <div className='showcase-wrapper row'>
             <div className='col-3 mt-2 filter'>
-              <button className='btn btn-link text-decoration-underline mb-2 px-0'>
-                Remove Filter
-              </button>
-              <FilterCheckbox title='Sections' data={sections} />
-              <FilterCheckbox title='Styles' data={styles} />
+              {isFiltered ? (
+                <button className='btn btn-link text-decoration-underline mb-2 px-0'>
+                  Remove Filter
+                </button>
+              ) : (
+                <h5 className='fw-bold fs-6'>All Projects</h5>
+              )}
+              <FilterCheckbox title='Sections' data={sectionsCategories} />
+              <FilterCheckbox title='Styles' data={stylesCategories} />
             </div>
             <div className='projects col'>
               <div className='search ms-auto mb-3 ps-3 w-50'>

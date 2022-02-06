@@ -1,14 +1,26 @@
 import { Form } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setSectionsFilter,
+  setStylesFilter,
+} from '../../redux/actionCreators/filterAction';
 
 const FilterCheckbox = (props) => {
   const data = props.data;
   const title = props.title;
-  const checked = [];
+  const { sections, styles } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
 
   const handleCheckbox = (e) => {
-    checked.indexOf(e.target.value) < 0
-      ? checked.push(e.target.value)
-      : checked.splice(checked.indexOf(e.target.value), 1);
+    const category = e.target.value;
+    switch (title) {
+      case 'Sections':
+        return dispatch(setSectionsFilter({ sections, category }));
+      case 'Styles':
+        return dispatch(setStylesFilter({ styles, category }));
+      default:
+        break;
+    }
   };
 
   return (
