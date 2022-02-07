@@ -1,0 +1,34 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    .hero-container {
+        
+        width: 100%;
+        position: relative;
+        .picture {
+            position: absolute;
+            right: 0;
+            
+        }
+        .box2 {
+            position: absolute;
+            background-color: #FFFFFF;
+            width: 119px;
+            height: 153px;
+        } .row {
+            position: absolute;
+            top: 240px;
+
+         .h1 {
+            margin-top: 244px;
+        }
+    
+        }
+    } 
+} .box1 {
+            position: absolute;
+            background-color: $cloud;
+            width: 290px;
+            height: 265px;
+
+}
