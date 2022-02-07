@@ -1,9 +1,9 @@
 import { Profile, DashboardContent } from '../components';
-import { Breadcrumb } from 'react-bootstrap';
+import { Breadcrumb, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HomeIcons } from '../assets';
-import Default from '../layouts/Default';
 import Dashboard from '../layouts/Dashboard';
+import Default from '../layouts/Default';
 
 const DashboardPage = ()=>{
    return(
