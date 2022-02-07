@@ -1,0 +1,8 @@
+.CardLoading {
+  &:hover {
+    cursor: wait;
+  }
+  .card-header {
+    height: 200px;
+  }
+}
