@@ -9,10 +9,10 @@ const HomePage = () => {
   return (
     <LandingPage>
       <div className='Homepage'>
-        <HeroSection />
-        <WhatWeDoSection />
-        <OurWorkSection />
-        <ProductHighlight />
+         <HeroSection />
+         <WhatWeDoSection />
+         <OurWorkSection />
+         <ProductHighlight />
          <DesignerBiografiSection/>
          <Footer/>
       </div>
