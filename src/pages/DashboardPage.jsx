@@ -2,6 +2,7 @@ import { Profile, DashboardContent } from '../components';
 import { Breadcrumb, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HomeIcons } from '../assets';
+import Dashboard from '../layouts/Dashboard';
 import Default from '../layouts/Default';
 
 const DashboardPage = () => {
