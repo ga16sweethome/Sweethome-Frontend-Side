@@ -24,7 +24,7 @@ const Showcase = () => {
     Object.values(sections).find((value) => value === true) ||
     Object.values(styles).find((value) => value === true);
 
-  const isLoading = true;
+  const isLoading = false;
 
   return (
     <>

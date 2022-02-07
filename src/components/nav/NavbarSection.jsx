@@ -1,3 +1,4 @@
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/icons/svg/SweetHome.svg';
 
@@ -6,51 +7,56 @@ const NavbarSection = (props) => {
 
   return (
     <div className='NavbarSection'>
-      <nav
-        className={`navbar fixed-top navbar-expand-lg navbar-light ${
-          background && 'bg-white'
-        } `}>
-        <div className='container'>
-          <Link className='navbar-brand' to='/'>
+      <Navbar
+        variant='light'
+        bg={background && 'white'}
+        expand='lg'
+        className={`fixed-top navbar-expand-lg navbar-light`}>
+        <Container>
+          <Navbar.Brand as={Link} className='navbar-brand' to='/'>
             <img src={Logo} alt='logo SweetHome' />
-          </Link>
-          <button
-            className='navbar-toggler'
-            type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='/navbarNav'
-            aria-controls='navbarNav'
-            aria-expanded='false'
-            aria-label='Toggle navigation'>
-            <span className='navbar-toggler-icon'></span>
-          </button>
-          <div className='collapse navbar-collapse' id='navbarNav'>
-            <ul className='navbar-nav ms-auto'>
-              <li className='nav-item'>
-                <Link className='nav-link active' aria-current='page' to='/'>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls='offcanvasNavbar' />
+          <Navbar.Offcanvas
+            id='offcanvasNavbar'
+            aria-labelledby='offcanvasNavbarLabel'
+            placement='end'>
+            <Offcanvas.Header closeButton />
+            <Offcanvas.Body>
+              <Nav className='justify-content-end flex-grow-1 pe-3'>
+                <Nav.Link as={Link} to='/services'>
                   Our Service
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link className='nav-link' to='/showcase'>
+                </Nav.Link>
+                <Nav.Link as={Link} to='/showcase'>
                   Showcase
-                </Link>
-              </li>
-              <li className='vr mx-2'></li>
-              <li className='nav-item'>
-                <Link className='nav-link' to='/'>
+                </Nav.Link>
+                <hr />
+                <Nav.Link as={Link} to='/login'>
                   Login
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link className='nav-link disabled' to='/' aria-disabled='true'>
+                </Nav.Link>
+                <Nav.Link as={Link} to='/signup'>
                   Sign Up
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+                </Nav.Link>
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+          <Nav className='justify-content-end flex-grow-1 pe-3'>
+            <Nav.Link as={Link} to='/services'>
+              Our Service
+            </Nav.Link>
+            <Nav.Link as={Link} to='/showcase'>
+              Showcase
+            </Nav.Link>
+            <i className='vr mx-2'></i>
+            <Nav.Link as={Link} to='/login'>
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to='/signup'>
+              Sign Up
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
     </div>
   );
 };
