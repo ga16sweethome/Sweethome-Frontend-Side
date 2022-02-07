@@ -1,11 +1,8 @@
-import React from 'react';
-import {
-  ProductHighlight,
-  OurWorkSection,
-  WhatWeDoSection,
-} from '../components';
+
 import HeroSection from '../components/banners/HeroSection';
 import LandingPage from '../layouts/LandingPage';
+import { ProductHighlight, OurWorkSection, WhatWeDoSection, DesignerBiografiSection } from '../components';
+
 
 
 const HomePage = () => {
