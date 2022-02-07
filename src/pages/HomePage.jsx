@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductHighlight, OurWorkSection, WhatWeDoSection, DesignerBiografiSection } from '../components';
+import { ProductHighlight, OurWorkSection, WhatWeDoSection, DesignerBiografiSection, Footer } from '../components';
 
 
 const HomePage = () => {
@@ -9,6 +9,7 @@ const HomePage = () => {
       <OurWorkSection />
       <ProductHighlight/>
       <DesignerBiografiSection/>
+      <Footer/>
     </div>
   );
 };

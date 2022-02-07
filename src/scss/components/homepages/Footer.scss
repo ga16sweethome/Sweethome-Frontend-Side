@@ -1,0 +1,62 @@
+.footer-top{
+    background-color: aliceblue;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px;
+    
+
+    h2{
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+    }
+    p{
+        padding-top: 30px;
+    padding-bottom: 30px;
+    }
+
+}
+.about{
+    h5{
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 56px;
+    }
+}
+
+.hoverAja:hover{
+    color:bisque;
+
+}
+.footer-list{
+   
+    
+    h5{
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 15px;
+
+    }
+
+    li{
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+
+        a{
+            text-decoration: none;
+
+            &:hover{
+                color: bisque;
+            }
+        }
+    }
+}
+
+.footer-bottom{
+    padding-top: 30px;
+}

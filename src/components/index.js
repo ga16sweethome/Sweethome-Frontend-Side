@@ -2,3 +2,4 @@ export {default as DesignerBiografiSection} from './homepages/DesignerBiografiSe
 export { default as WhatWeDoSection } from './homepages/WhatWeDoSection';
 export { default as ProductHighlight} from './homepages/ProductHighlight';
 export { default as OurWorkSection } from './homepages/OurWorkSection';
+export {default as Footer} from './homepages/Footer';
