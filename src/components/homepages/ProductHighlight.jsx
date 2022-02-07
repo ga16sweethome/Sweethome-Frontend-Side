@@ -41,8 +41,8 @@ const ProductHighlight = () =>{
                         <button 
                         type="submit" 
                         className="btn px-4 btn-secondary fw-bold" 
-                        linkAs={Link} 
-                        linkProps={{ to: '/' }}
+                        linkas={Link} 
+                        linkprops={{ to: '/' }}
                         >
                            See All
                         </button>

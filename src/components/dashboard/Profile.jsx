@@ -28,7 +28,7 @@ const Profile = ()=>{
                   <button type="button" className="btn btn-primary px-5 py-3 shadow-sm">
                      <div className="buttonContent align-items-center">
                      <img src={icon} alt="button icon" />
-                     <span className="ps-4 fw-bold" linkAs={Link} linkProps={{ to: '/' }}>Create Appointement</span>
+                     <span className="ps-4 fw-bold" linkas={Link} linkprops={{ to: '/' }}>Create Appointement</span>
                      </div>
                   </button>
                </div>

@@ -27,23 +27,23 @@ const NavbarSection = (props) => {
           <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav ms-auto'>
               <li className='nav-item'>
-                <Link className='nav-link active' aria-current='page' to='/'>
+                <Link className='fw-bold nav-link active' aria-current='page' to='/'>
                   Our Service
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link className='nav-link active' to='/showcase'>
+                <Link className='fw-bold nav-link active' to='/showcase'>
                   Showcase
                 </Link>
               </li>
               <li className='vr mx-2'></li>
               <li className='nav-item'>
-                <Link className='nav-link active' to='/'>
+                <Link className='text-secondary fw-bold nav-link active' to='/'>
                   Login
                 </Link>
               </li>
-              <li className='nav-item bg-yellow'>
-                <Link className='nav-link active' to='/'>
+              <li className='nav-item'>
+                <Link className=' text-secondary fw-bold nav-link active' to='/'>
                   Sign Up
                 </Link>
               </li>
