@@ -1,11 +1,11 @@
 .NavbarSection {
-    .navbar {
-        .container {
-            .navbar-brand {
-                img {
-                    height: 32px;
-                }
-            }
+  .navbar {
+    .container-fluid {
+      .navbar-brand {
+        img {
+          height: 32px;
         }
+      }
     }
+  }
 }
