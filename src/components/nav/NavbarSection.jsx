@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/icons/svg/SweetHome.svg';
 
 const NavbarSection = (props) => {
@@ -10,9 +11,9 @@ const NavbarSection = (props) => {
           background && 'bg-white'
         } `}>
         <div className='container'>
-          <a className='navbar-brand' href='/'>
+          <Link className='navbar-brand' to='/'>
             <img src={Logo} alt='logo SweetHome' />
-          </a>
+          </Link>
           <button
             className='navbar-toggler'
             type='button'
@@ -26,25 +27,25 @@ const NavbarSection = (props) => {
           <div className='collapse navbar-collapse' id='navbarNav'>
             <ul className='navbar-nav ms-auto'>
               <li className='nav-item'>
-                <a className='nav-link active' aria-current='page' href='/'>
+                <Link className='nav-link active' aria-current='page' to='/'>
                   Our Service
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='/'>
+                <Link className='nav-link' to='/showcase'>
                   Showcase
-                </a>
+                </Link>
               </li>
               <li className='vr mx-2'></li>
               <li className='nav-item'>
-                <a className='nav-link' href='/'>
+                <Link className='nav-link' to='/'>
                   Login
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link disabled' href='/' aria-disabled='true'>
+                <Link className='nav-link disabled' to='/' aria-disabled='true'>
                   Sign Up
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
