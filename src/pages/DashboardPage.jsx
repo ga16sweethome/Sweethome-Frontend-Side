@@ -2,12 +2,12 @@ import { Profile, DashboardContent } from '../components';
 import { Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HomeIcons } from '../assets';
-import LandingPage from '../layouts/LandingPage';
 import Dashboard from '../layouts/Dashboard';
+import Default from '../layouts/Default';
 
 const DashboardPage = () => {
   return (
-    <LandingPage>
+    <Default>
       <div className='dashboardPage d-flex mx-auto pt-5 mt-5'>
         <Dashboard>
           <Breadcrumb className='py-3'>
@@ -23,7 +23,7 @@ const DashboardPage = () => {
           <DashboardContent />
         </Dashboard>
       </div>
-    </LandingPage>
+    </Default>
   );
 };
 
