@@ -1,7 +1,7 @@
 
 import HeroSection from '../components/banners/HeroSection';
 import LandingPage from '../layouts/LandingPage';
-import { ProductHighlight, OurWorkSection, WhatWeDoSection, DesignerBiografiSection } from '../components';
+import { ProductHighlight, OurWorkSection, WhatWeDoSection, DesignerBiografiSection, Footer } from '../components';
 
 
 
@@ -13,6 +13,8 @@ const HomePage = () => {
         <WhatWeDoSection />
         <OurWorkSection />
         <ProductHighlight />
+         <DesignerBiografiSection/>
+         <Footer/>
       </div>
     </LandingPage>
   );
