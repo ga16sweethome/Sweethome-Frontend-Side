@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/icons/svg/SweetHome.svg';
 
@@ -13,7 +13,7 @@ const NavbarSection = (props) => {
         bg={background && 'white'}
         fixed='top'
         variant='light'>
-        <Container>
+        <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             <img src={Logo} alt='logo SweetHome' />
           </Navbar.Brand>
