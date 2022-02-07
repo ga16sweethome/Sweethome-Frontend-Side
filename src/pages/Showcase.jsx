@@ -34,7 +34,7 @@ const Showcase = () => {
             <span className='text-ash me-3'>
               <HomeIcons />
             </span>
-            <Breadcrumb.Item linkAs={Link} linkProps={{ to: '/' }}>
+            <Breadcrumb.Item linkas={Link} linkprops={{ to: '/' }}>
               Home
             </Breadcrumb.Item>
             <Breadcrumb.Item active>Showcase</Breadcrumb.Item>
