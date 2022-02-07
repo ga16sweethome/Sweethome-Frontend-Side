@@ -32,18 +32,18 @@ const NavbarSection = (props) => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link className='nav-link' to='/showcase'>
+                <Link className='nav-link active' to='/showcase'>
                   Showcase
                 </Link>
               </li>
               <li className='vr mx-2'></li>
               <li className='nav-item'>
-                <Link className='nav-link' to='/'>
+                <Link className='nav-link active' to='/'>
                   Login
                 </Link>
               </li>
-              <li className='nav-item'>
-                <Link className='nav-link disabled' to='/' aria-disabled='true'>
+              <li className='nav-item bg-yellow'>
+                <Link className='nav-link active' to='/'>
                   Sign Up
                 </Link>
               </li>
