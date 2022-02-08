@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const ProductHighlight = () => {
   const [category, setCategory] = useState('');
-  const [image, setImage] = useState({ kitchen });
+  const [image, setImage] = useState( kitchen );
 
   useEffect(() => {
     axios
