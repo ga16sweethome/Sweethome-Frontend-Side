@@ -8,7 +8,7 @@ const ProjectResume = ()=>{
    const [cancelShow, setCancelShow] = useState(false);
    return(
       <div className="projectResume">
-         <Accordion defaultActiveKey={['0']} alwaysOpen>
+         <Accordion defaultActiveKey={['0']}>
             <Accordion.Item className="border-secondary shadow p-3 mb-5 bg-body" eventKey="0">
                <Accordion.Header>
                <div className="d-flex flex-column w-100">
@@ -65,7 +65,7 @@ const ProjectResume = ()=>{
                                     Upload Receipt
                                  </Button>
                               </div>
-                              <div className="cancelRequest">
+                              <div className="cancelRequest pt-2">
                                  <span className="text-ash" onClick={() => setCancelShow(true)}>
                                     Request Cancellation
                                  </span>
