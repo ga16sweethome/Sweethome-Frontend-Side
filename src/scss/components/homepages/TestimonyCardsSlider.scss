@@ -1,0 +1,26 @@
+.TestimonyCardsSlider {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .btn-next,
+  .btn-prev {
+    height: fit-content;
+    line-height: 0;
+    padding: 8px;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .btn-next {
+    right: 0;
+  }
+
+  .testimony-slider {
+    .swiper-wrapper {
+      .swiper-slide {
+        width: 600px;
+      }
+    }
+  }
+}
