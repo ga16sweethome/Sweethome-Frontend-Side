@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { Navigation, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';

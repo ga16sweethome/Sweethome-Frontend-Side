@@ -16,12 +16,12 @@ const ProductHighlight = () => {
         const data = response.data.result[0].image;
         setImage(data);
       });
-  }, [category]);
+  }, [category]); 
 
   return (
     <div className='productHighlight d-flex '>
       <div className='contentImage card mx-auto'>
-        <img src={kitchen} className='card-img imageHighlight' alt='...' />
+        <img src={image} className='card-img imageHighlight' alt='...' />
         <div className='contentOverlay d-flex align-items-end card-img-overlay'>
           <div className='ideasBar d-flex bg-primary'>
             <div className='categoryFilter d-flex align-items-center justify-content-between m-auto text-light'>
