@@ -11,7 +11,7 @@ const HeroSection = () => {
           <div className='picture'>
             <div className='box2'></div>
             <img
-              clasName='picture-hero'
+              className='picture-hero'
               src={Background}
               alt='background hero'
             />
