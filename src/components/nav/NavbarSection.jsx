@@ -1,9 +1,13 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Logo from '../../assets/icons/svg/SweetHome.svg';
+import {useState} from 'react';
+import LoginForm from '../login/LoginForm';
 
 const NavbarSection = (props) => {
   const background = props.background;
+
+  const [showLogin, setShowLogin] = useState(false)
 
   return (
     <div className='NavbarSection'>
@@ -28,7 +32,10 @@ const NavbarSection = (props) => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link
+              <Nav.Link onClick={(e) => {
+                e.preventDefault()
+                setShowLogin(true)
+              }}
                 as={Link}
                 to='/login'
                 className='fw-bold text-secondary'>
@@ -44,6 +51,14 @@ const NavbarSection = (props) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {showLogin && <LoginForm onClose={() => {
+        setShowLogin(false)
+      }} />}
+      {/* <Routes>
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
+       */}
     </div>
   );
 };

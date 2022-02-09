@@ -1,0 +1,70 @@
+.loginForm-wrapper{
+    display: flex;
+    position: fixed;
+    width:100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+
+    .background-login {
+        width: 50%;
+        background: url("../../../assets/img/Rectangle\ 19.png");
+        background-size: cover;
+    }
+
+    .login {
+        width: 50%;
+        background-color: white;
+    
+        .login-close {
+            position: absolute;
+            top:10.5px;
+            right: 22.5px;
+            background:transparent;
+            border: none;
+        } .login-text {
+            margin-top: 40px;
+            margin-left: 59px;
+
+            .Text {
+                font-weight: 700;
+                font-size: 32px;
+            }
+
+            p{
+                font-weight: 400;
+                font-size: 14px;
+            }
+        } .form-login {
+            padding: 51px;
+
+            .form-control {
+                height: 50px;
+            }
+        }
+    } .button-login {
+        margin: auto;
+        display: block;
+        width: 275px;
+        height: 55px;
+    }
+
+    } .button-social {
+        margin-top: 40px;
+        justify-content: center;
+        width: 100%;
+        height: 42px;
+        display: flex;
+        gap: 20px;
+
+        button {
+            width: 164px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+} 
+
