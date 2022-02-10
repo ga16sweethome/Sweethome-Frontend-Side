@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import filterReducer from './FilterShowcase/filterReducer';
+import appointmentForm from './appointment/appointmentForm';
+import filterReducer from './filterShowcase/filterReducer';
 
 const rootReducer = combineReducers({
   filter: filterReducer,
+  appointment: appointmentForm,
 });
 
 export default rootReducer;

@@ -15,3 +15,4 @@ export { default as FilterLoading } from './loading/FilterLoading';
 export { default as Footer } from './homepages/Footer';
 export { default as TestimonyCard } from './cards/TestimonyCard';
 export { default as TestimonyCardsSlider } from './homepages/TestimonyCardsSlider';
+export { default as FormEnquiryDetails } from './forms/FormEnquiryDetails';

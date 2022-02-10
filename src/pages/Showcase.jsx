@@ -29,7 +29,7 @@ const Showcase = () => {
   return (
     <>
       <Default>
-        <div className='Showcase py-5'>
+        <div className='Showcase container py-1'>
           <Breadcrumb className='mt-4 py-3'>
             <span className='text-ash me-3'>
               <HomeIcons />

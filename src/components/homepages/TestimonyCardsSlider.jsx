@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { Navigation, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,7 +7,7 @@ import { TestimonyCard } from '..';
 
 const TestimonyCardsSlider = () => {
   return (
-    <div className='TestimonyCardsSlider d-flex mt-5'>
+    <div className='TestimonyCardsSlider d-flex mx-5 mt-5'>
       <Button className='btn-prev rounded-circle' variant='secondary'>
         <BiLeftArrow />
       </Button>

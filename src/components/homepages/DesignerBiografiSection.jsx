@@ -1,9 +1,9 @@
 import imagesDesigner from '../../assets/img/designerImg.png';
-import LandingPage from '../../layouts/LandingPage';
+import Dashboard from '../../layouts/Dashboard';
 
 const DesignerBiografiSection = () => {
   return (
-    <LandingPage>
+    <Dashboard>
       <div className='wrapper p-5 my-5'>
         <h2 className='ps-4 mb-5 fw-bold serif'>Meet Our Designer</h2>
         <div className='d-flex'>
@@ -30,7 +30,7 @@ const DesignerBiografiSection = () => {
           </div>
         </div>
       </div>
-    </LandingPage>
+    </Dashboard>
   );
 };
 
