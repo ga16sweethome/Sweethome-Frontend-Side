@@ -2,6 +2,7 @@ import { SET_CHECKBOX_SECTIONS, SET_CHECKBOX_STYLES } from '../../constants';
 
 const initialState = {
   enquiryDetails: {
+    buildingType: [],
     checkbox: {
       sections: {
         'Living Room': false,
