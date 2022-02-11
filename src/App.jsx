@@ -5,6 +5,7 @@ import {
   DashboardPage,
   NotFoundPages,
   Appointment,
+  Project
 } from './pages';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path='showcase' element={<Showcase />} />
       <Route path='dashboard' element={<DashboardPage />} />
       <Route path='appointment' element={<Appointment />} />
+      <Route path='project' element={<Project />} />
       <Route path='*' element={<NotFoundPages />} />
     </Routes>
   );

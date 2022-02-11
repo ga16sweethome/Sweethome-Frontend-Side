@@ -3,7 +3,6 @@ import {PropertyDetails, ImageCard} from '../../components'
 import {useState} from 'react';
 import GaleriView from './GaleriView';
 import Kitchen from '../../assets/kitchen.jpg';
-import { useState } from 'react';
 import ShowCaseAllVew from './ShowCaseAllVew';
 
 const ProjectDetails = ()=>{
