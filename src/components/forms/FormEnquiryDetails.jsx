@@ -17,13 +17,13 @@ import {
 } from '../../redux/actionCreators/appointmentAction';
 
 const validationSchema = Yup.object().shape({
-  buildingType: Yup.string().required('Required'),
-  serviceType: Yup.string().required('Required'),
-  estimatedWorkDuration: Yup.string().required('Required'),
-  budget: Yup.number().required('Required'),
-  address: Yup.string().required('Required'),
-  sections: Yup.array().required('Required'),
-  styles: Yup.array().required('Required'),
+  buildingType: Yup.string().required('Required!'),
+  serviceType: Yup.string().required('Required!'),
+  estimatedWorkDuration: Yup.string().required('Required!'),
+  budget: Yup.number().required('Required!'),
+  address: Yup.string().required('Required!'),
+  sections: Yup.array().min(1, 'Required!'),
+  styles: Yup.array().min(1, 'Required!'),
   note: Yup.string(),
 });
 
@@ -72,6 +72,7 @@ const EnquiryDetails = () => {
           values,
           touched,
           isValid,
+          dirty,
           errors,
         }) => (
           <Form className='d-flex flex-column w-100'>
@@ -203,58 +204,80 @@ Surabaya Jawa Timur`}
             </Form.Group>
 
             <Row className='mb-3'>
-              <Col className='bg-vogue reounded px-0 mx-2'>
-                <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
-                  <h4 className='fw-bold mb-0 fs-6'>
-                    Sections<span className='text-danger'>*</span>
-                  </h4>
-                  <p className='fst-italic text-ash mb-0'>
-                    you may select more then one
-                  </p>
+              <Col>
+                <div
+                  className={`bg-vogue rounded px-0 h-100 ${
+                    errors.sections && 'border border-danger'
+                  }`}>
+                  <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
+                    <h4 className='fw-bold mb-0 fs-6'>
+                      Sections<span className='text-danger'>*</span>
+                    </h4>
+                    <p className='fst-italic text-ash mb-0'>
+                      you may select more then one
+                    </p>
+                  </div>
+                  <div className='checkbox-item m-2'>
+                    {sectionsKeys.map((key, idx) => (
+                      <ToggleButton
+                        key={`sections-${idx}`}
+                        name='sections'
+                        className='m-1 rounded'
+                        id={key.replace(' ', '-')}
+                        type='checkbox'
+                        variant='outline-primary'
+                        checked={sections[key]}
+                        onChange={(e) => {
+                          handleChange(e);
+                          checkboxSections(e);
+                        }}
+                        value={key}>
+                        {key}
+                      </ToggleButton>
+                    ))}
+                  </div>
                 </div>
-                <div className='checkbox-item m-2'>
-                  {sectionsKeys.map((key, idx) => (
-                    <ToggleButton
-                      key={`sections-${idx}`}
-                      name='sections'
-                      className='m-1 rounded'
-                      id={key.replace(' ', '-')}
-                      type='checkbox'
-                      variant='outline-primary'
-                      checked={sections[key]}
-                      onChange={(e) => checkboxSections(e)}
-                      value={key}>
-                      {key}
-                    </ToggleButton>
-                  ))}
-                </div>
+                {errors.sections && (
+                  <p className='text-danger'>{errors.sections}</p>
+                )}
               </Col>
-              <Col className='bg-vogue rounded px-0 mx-2'>
-                <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
-                  <h4 className='fw-bold mb-0 fs-6'>
-                    Styles<span className='text-danger'>*</span>
-                  </h4>
-                  <p className='fst-italic text-ash mb-0'>
-                    you may select more then one
-                  </p>
+              <Col>
+                <div
+                  className={`bg-vogue rounded px-0 h-100 ${
+                    errors.styles && 'border border-danger'
+                  }`}>
+                  <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
+                    <h4 className='fw-bold mb-0 fs-6'>
+                      Styles<span className='text-danger'>*</span>
+                    </h4>
+                    <p className='fst-italic text-ash mb-0'>
+                      you may select more then one
+                    </p>
+                  </div>
+                  <div className='checkbox-item m-2'>
+                    {stylesKeys.map((key, idx) => (
+                      <ToggleButton
+                        key={idx}
+                        name='styles'
+                        className='m-1 rounded'
+                        id={key.replace(' ', '-')}
+                        type='checkbox'
+                        variant='outline-primary'
+                        checked={styles[key]}
+                        value={key}
+                        onBlur={handleBlur}
+                        onChange={(e) => {
+                          handleChange(e);
+                          checkboxStyles(e);
+                        }}>
+                        {key}
+                      </ToggleButton>
+                    ))}
+                  </div>
                 </div>
-                <div className='checkbox-item m-2'>
-                  {stylesKeys.map((key, idx) => (
-                    <ToggleButton
-                      key={idx}
-                      name='styles'
-                      className='m-1 rounded'
-                      id={key.replace(' ', '-')}
-                      type='checkbox'
-                      variant='outline-primary'
-                      checked={styles[key]}
-                      value={key}
-                      onBlur={handleBlur}
-                      onChange={(e) => checkboxStyles(e)}>
-                      {key}
-                    </ToggleButton>
-                  ))}
-                </div>
+                {errors.styles && (
+                  <p className='text-danger ms-3'>{errors.styles}</p>
+                )}
               </Col>
             </Row>
 
@@ -276,6 +299,7 @@ Surabaya Jawa Timur`}
               className='ms-auto px-5'
               variant='primary'
               type='submit'
+              disabled={!dirty || Object.keys(errors).length > 0}
               onClick={handleSubmit}>
               Next <BiRightArrowAlt />
             </Button>
