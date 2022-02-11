@@ -1,0 +1,12 @@
+.Appointment {
+  .nav-item {
+    cursor: pointer;
+
+    .nav-link {
+      &:hover {
+        border-color: $secondary $secondary $white;
+        color: $info;
+      }
+    }
+  }
+}

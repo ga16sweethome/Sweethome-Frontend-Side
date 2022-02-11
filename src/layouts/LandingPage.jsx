@@ -1,27 +1,27 @@
 import React from 'react';
 import { useState } from 'react';
-import { NavbarSection } from '../components';
+import { Footer, NavbarSection } from '../components';
 
 const LandingPage = (props) => {
-  const [backgroundNav, setBackgroundNav] = useState(false)
-  
-  const checkScroll = () => { 
+  const [backgroundNav, setBackgroundNav] = useState(false);
+
+  const checkScroll = () => {
     const scroll = window.scrollY;
-    if (scroll > 50 ) {
-      setBackgroundNav(true) 
+    if (scroll > 50) {
+      setBackgroundNav(true);
     } else if (backgroundNav === true) {
-      setBackgroundNav(false)
+      setBackgroundNav(false);
     } else {
-      setBackgroundNav(false)
+      setBackgroundNav(false);
     }
-  }
-  window.addEventListener("scroll", checkScroll)
-  
+  };
+  window.addEventListener('scroll', checkScroll);
 
   return (
     <>
-    <NavbarSection background = { backgroundNav } />
-    <div className='LandingPage mx-auto'>{props.children}</div>
+      <NavbarSection background={backgroundNav} />
+      <div className='LandingPage mx-auto'>{props.children}</div>
+      <Footer />
     </>
   );
 };

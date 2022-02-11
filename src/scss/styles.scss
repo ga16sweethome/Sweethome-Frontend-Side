@@ -1,6 +1,19 @@
 // Google Font API
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
 
+// Removes Arrows / Spinner for Input type Number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 // SwiperJS Styling
 @import '~swiper/scss';
 @import '~swiper/scss/scrollbar';
@@ -92,3 +105,4 @@
 @import './components/homepages/TestimonyCardsSlider.scss';
 @import './components/cards/ShowCaseAllVew.scss';
 @import './components/projectDetails/ProjectDetail.scss';
+@import './pages/Appointment.scss';
