@@ -1,21 +1,97 @@
-import { SET_CHECKBOX_SECTIONS, SET_CHECKBOX_STYLES } from '../constants';
+import axios from 'axios';
+import {
+  SET_SECTIONS,
+  SET_STYLES,
+  GET_SECTIONS,
+  GET_STYLES,
+} from '../constants';
+
+export const getSections = () => (dispatch) => {
+  dispatch({
+    type: GET_SECTIONS,
+    payload: {
+      loading: true,
+      result: null,
+      error: false,
+    },
+  });
+  axios({
+    method: 'get',
+    url: `${process.env.REACT_APP_BASE_API}content/section`,
+  })
+    .then((response) => {
+      dispatch({
+        type: GET_SECTIONS,
+        payload: {
+          loading: false,
+          result: response.data.map((obj) => ({ ...obj, value: false })),
+          error: false,
+        },
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: GET_SECTIONS,
+        payload: {
+          loading: false,
+          result: null,
+          error: error.message,
+        },
+      });
+    });
+};
+
+export const getStyles = () => (dispatch) => {
+  dispatch({
+    type: GET_STYLES,
+    payload: {
+      loading: true,
+      result: null,
+      error: false,
+    },
+  });
+  axios({
+    method: 'get',
+    url: `${process.env.REACT_APP_BASE_API}content/style`,
+  })
+    .then((response) => {
+      dispatch({
+        type: GET_STYLES,
+        payload: {
+          loading: false,
+          result: response.data.map((obj) => ({ ...obj, value: false })),
+          error: false,
+        },
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: GET_STYLES,
+        payload: {
+          loading: false,
+          result: null,
+          error: error.message,
+        },
+      });
+    });
+};
 
 export const setSections = (data) => {
-  const { key, checked } = data;
-  const newSections = {};
-  newSections[key] = checked;
+  const { checked, idx, arr } = data;
+  const newSections = arr;
+  newSections[idx].value = checked;
   return {
-    type: SET_CHECKBOX_SECTIONS,
+    type: SET_SECTIONS,
     payload: newSections,
   };
 };
 
 export const setStyles = (data) => {
-  const { key, checked } = data;
-  const newStyles = {};
-  newStyles[key] = checked;
+  const { checked, idx, arr } = data;
+  const newStyles = arr;
+  newStyles[idx].value = checked;
   return {
-    type: SET_CHECKBOX_STYLES,
+    type: SET_STYLES,
     payload: newStyles,
   };
 };

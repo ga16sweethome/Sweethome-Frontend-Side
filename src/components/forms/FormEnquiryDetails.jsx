@@ -6,14 +6,16 @@ import {
   Row,
   ToggleButton,
 } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { Formik, Field } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { Formik } from 'formik';
 import { BiRightArrowAlt } from 'react-icons/bi';
 import * as Yup from 'yup';
 import {
   setSections,
   setStyles,
+  getSections,
+  getStyles,
 } from '../../redux/actionCreators/appointmentAction';
 
 const validationSchema = Yup.object().shape({
@@ -29,25 +31,26 @@ const validationSchema = Yup.object().shape({
 
 const EnquiryDetails = () => {
   const dispatch = useDispatch();
-  const { sections, styles } = useSelector(
-    (state) => state.appointment.enquiryDetails.checkbox
-  );
+  const { sections, styles } = useSelector((state) => state.appointment);
 
-  const sectionsKeys = Object.keys(sections);
-  const stylesKeys = Object.keys(styles);
+  useEffect(() => {
+    dispatch(getSections());
+    dispatch(getStyles());
+  }, [dispatch]);
 
-  const checkboxSections = (e) => {
-    const key = e.target.value;
+  console.log('sections:', sections);
+  console.log('styles:', styles);
+
+  const checkboxSections = (e, idx, arr) => {
     const checked = e.target.checked;
 
-    dispatch(setSections({ key, checked }));
+    dispatch(setSections({ checked, idx, arr }));
   };
 
-  const checkboxStyles = (e) => {
-    const key = e.target.value;
+  const checkboxStyles = (e, idx, arr) => {
     const checked = e.target.checked;
 
-    dispatch(setStyles({ key, checked }));
+    dispatch(setStyles({ checked, idx, arr }));
   };
 
   return (
@@ -204,10 +207,10 @@ Surabaya Jawa Timur`}
             </Form.Group>
 
             <Row className='mb-3'>
-              <Col>
+              <Col xs={6}>
                 <div
-                  className={`bg-vogue rounded px-0 h-100 ${
-                    errors.sections && 'border border-danger'
+                  className={`bg-vogue rounded px-0 h-100 border ${
+                    errors.sections && 'border-danger'
                   }`}>
                   <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
                     <h4 className='fw-bold mb-0 fs-6'>
@@ -218,33 +221,31 @@ Surabaya Jawa Timur`}
                     </p>
                   </div>
                   <div className='checkbox-item m-2'>
-                    {sectionsKeys.map((key, idx) => (
-                      <ToggleButton
-                        key={`sections-${idx}`}
-                        name='sections'
-                        className='m-1 rounded'
-                        id={key.replace(' ', '-')}
-                        type='checkbox'
-                        variant='outline-primary'
-                        checked={sections[key]}
-                        onChange={(e) => {
-                          handleChange(e);
-                          checkboxSections(e);
-                        }}
-                        value={key}>
-                        {key}
-                      </ToggleButton>
-                    ))}
+                    {sections.result &&
+                      sections.result.map((section, idx, arr) => (
+                        <ToggleButton
+                          key={`sections-${idx}`}
+                          name='sections'
+                          className='m-1 rounded'
+                          id={section.name.replace(' ', '-')}
+                          type='checkbox'
+                          variant='outline-primary'
+                          checked={section.value}
+                          onChange={(e) => {
+                            handleChange(e);
+                            checkboxSections(e, idx, arr);
+                          }}
+                          value={section.name}>
+                          {section.name}
+                        </ToggleButton>
+                      ))}
                   </div>
                 </div>
-                {errors.sections && (
-                  <p className='text-danger'>{errors.sections}</p>
-                )}
               </Col>
-              <Col>
+              <Col xs={6}>
                 <div
-                  className={`bg-vogue rounded px-0 h-100 ${
-                    errors.styles && 'border border-danger'
+                  className={`bg-vogue rounded px-0 h-100 border ${
+                    errors.styles && 'border-danger'
                   }`}>
                   <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
                     <h4 className='fw-bold mb-0 fs-6'>
@@ -255,28 +256,35 @@ Surabaya Jawa Timur`}
                     </p>
                   </div>
                   <div className='checkbox-item m-2'>
-                    {stylesKeys.map((key, idx) => (
-                      <ToggleButton
-                        key={idx}
-                        name='styles'
-                        className='m-1 rounded'
-                        id={key.replace(' ', '-')}
-                        type='checkbox'
-                        variant='outline-primary'
-                        checked={styles[key]}
-                        value={key}
-                        onBlur={handleBlur}
-                        onChange={(e) => {
-                          handleChange(e);
-                          checkboxStyles(e);
-                        }}>
-                        {key}
-                      </ToggleButton>
-                    ))}
+                    {styles.result &&
+                      styles.result.map((style, idx, arr) => (
+                        <ToggleButton
+                          key={`styles-${idx}`}
+                          name='styles'
+                          className='m-1 rounded'
+                          id={style.name.replace(' ', '-')}
+                          type='checkbox'
+                          variant='outline-primary'
+                          checked={style.value}
+                          onChange={(e) => {
+                            handleChange(e);
+                            checkboxStyles(e, idx, arr);
+                          }}
+                          value={style.name}>
+                          {style.name}
+                        </ToggleButton>
+                      ))}
                   </div>
                 </div>
+              </Col>
+              <Col xs={6}>
+                {errors.sections && (
+                  <p className='text-danger'>{errors.sections}</p>
+                )}
+              </Col>
+              <Col xs={6}>
                 {errors.styles && (
-                  <p className='text-danger ms-3'>{errors.styles}</p>
+                  <p className='text-danger'>{errors.styles}</p>
                 )}
               </Col>
             </Row>
