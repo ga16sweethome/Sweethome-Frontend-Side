@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ProjectDetails } from '../components';
 import { HomeIcons } from '../assets';
 
+
 const Project = ()=>{
    return(
       <Default>
@@ -18,6 +19,7 @@ const Project = ()=>{
                <Breadcrumb.Item active>Showcase</Breadcrumb.Item>
             </Breadcrumb>
             <ProjectDetails/>
+            
          </div>
       </Default>
    )

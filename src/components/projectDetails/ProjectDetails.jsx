@@ -3,8 +3,11 @@ import {PropertyDetails, ImageCard} from '../../components'
 import {useState} from 'react';
 import GaleriView from './GaleriView';
 import Kitchen from '../../assets/kitchen.jpg';
+import { useState } from 'react';
+import ShowCaseAllVew from './ShowCaseAllVew';
 
 const ProjectDetails = ()=>{
+   const [showAllVew, setShowAllVew] = useState(false);
    const [show, setShow] = useState(false);
 
    return(
@@ -54,7 +57,7 @@ const ProjectDetails = ()=>{
                         classOverlay = "d-flex align-items-end"
                      />
                   </div>
-                  <div className="col">
+                  <div className=" allImage col" onClick={() => setShowAllVew(true)}>
                      <ImageCard
                         image = {Kitchen}
                         title = "View All 18 Photos"
@@ -66,6 +69,13 @@ const ProjectDetails = ()=>{
             </div>
             <div className="col">
                <PropertyDetails/>
+            </div>
+            <div className="showAllVew">
+               <ShowCaseAllVew
+               show={showAllVew}
+               onHide={() => setShowAllVew(false)}
+               dialogClassName="modal-fullscreen"
+               aria-labelledby="example-custom-modal-styling-title"/>
             </div>
          </div>
          <div className="showImageModal">
