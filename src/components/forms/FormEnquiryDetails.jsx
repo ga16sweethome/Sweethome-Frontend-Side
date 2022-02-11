@@ -209,7 +209,7 @@ Surabaya Jawa Timur`}
             <Row className='mb-3'>
               <Col xs={6}>
                 <div
-                  className={`bg-vogue rounded px-0 h-100 border ${
+                  className={`bg-wheat rounded px-0 h-100 border ${
                     errors.sections && 'border-danger'
                   }`}>
                   <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>
@@ -244,7 +244,7 @@ Surabaya Jawa Timur`}
               </Col>
               <Col xs={6}>
                 <div
-                  className={`bg-vogue rounded px-0 h-100 border ${
+                  className={`bg-wheat rounded px-0 h-100 border ${
                     errors.styles && 'border-danger'
                   }`}>
                   <div className='header-checkbox d-flex justify-content-between align-items-center mt-3 mx-3'>

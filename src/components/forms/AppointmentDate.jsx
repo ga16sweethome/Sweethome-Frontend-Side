@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
+import { BiRightArrowAlt } from 'react-icons/bi';
 
 const AppointmentDate = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -34,6 +35,11 @@ const AppointmentDate = () => {
             label={time}
           />
         ))}
+      </div>
+      <div className='d-flex'>
+        <Button className='ms-auto px-5 mb-5' variant='primary' type='submit'>
+          Next <BiRightArrowAlt />
+        </Button>
       </div>
     </div>
   );

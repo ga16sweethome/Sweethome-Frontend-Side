@@ -8,7 +8,7 @@ import {
 import Default from '../layouts/Default';
 
 const Appointment = () => {
-  const [activeTab, setActiveTab] = useState('reviews');
+  const [activeTab, setActiveTab] = useState('enquiryDetails');
   return (
     <Default>
       <div className='Appointment'></div>
