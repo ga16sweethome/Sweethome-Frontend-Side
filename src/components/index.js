@@ -20,3 +20,5 @@ export { default as ProjectDetails } from './projectDetails/ProjectDetails';
 export { default as ImageCard } from './cards/ImageCard';
 export { default as PropertyDetails } from './projectDetails/PropertyDetails';
 export { default as GaleriView } from './projectDetails/GaleriView';
+
+export { default as AppointmentDate } from './forms/AppointmentDate';
