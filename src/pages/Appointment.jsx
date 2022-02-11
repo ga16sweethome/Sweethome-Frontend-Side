@@ -1,5 +1,3 @@
-import React from 'react';
-import { NavbarSection } from '../components';
 import Default from '../layouts/Default';
 
 const Appointment = () => {

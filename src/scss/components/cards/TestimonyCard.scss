@@ -1,0 +1,18 @@
+.TestimonyCard {
+  position: relative;
+  height: 290px;
+
+  .profile-testimony {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    z-index: 100;
+  }
+
+  .card {
+    position: absolute;
+    bottom: 0;
+  }
+}

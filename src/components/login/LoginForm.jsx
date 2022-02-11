@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 
 const LoginForm = (props) => {
+  const [showPassword, setShowPassword] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,10 +26,11 @@ const LoginForm = (props) => {
     }),
 
     onSubmit: (values) => {
-      const data = {
-        email: values.email,
-        password: values.password,
-      };
+      alert(JSON.stringify(values, null, 2));
+      // const data = {
+      //   email: values.email,
+      //   password: values.password,
+      // };
     },
   });
   return (
@@ -62,25 +64,35 @@ const LoginForm = (props) => {
                 Don’t have account? <a href="#">Sign Up</a>
               </p>
             </div>
-            <div className="form-login">
-              <Form onSubmit="{formik.handleSubmit}">
+            <div className=" border-bottom border-ash pb-5">
+              <div className="form-login">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
+                  <Form onSubmit={formik.handleSubmit}>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      onChange={formik.handleChange}
+                      // value={formik.values.email}
+                    />
+                    <p>{formik.errors.email}</p>
+                    <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text>
+                  </Form>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" placeholder="Password" />
-                  <AiOutlineEyeInvisible />
+                  <icon className="showIcon">
+                    <AiOutlineEyeInvisible />
+                  </icon>
                 </Form.Group>
-              </Form>
+              </div>
+              <Button className="button-login mb-5" variant="secondary">
+                <b>Login</b>
+              </Button>
             </div>
-            <Button className="button-login" variant="secondary">
-              <b>Login</b>
-            </Button>
             <div className="button-social">
               <Button variant="mint">
                 <BsGoogle /> &nbsp;Google

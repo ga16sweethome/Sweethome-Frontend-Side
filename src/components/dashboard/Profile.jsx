@@ -11,16 +11,12 @@ const Profile = () => {
         </div>
         <div className='profileContent  d-flex flex-row align-items-center'>
           <div className='imageSection'>
-            <img
-              className='imageProfile img-fluid'
-              src={image}
-              alt='image profile'
-            />
+            <img className='imageProfile img-fluid' src={image} alt='profile' />
           </div>
           <div className='detailProfile ps-4'>
             <h4 className='mb-0 fw-bold'>Ariana Grande</h4>
             <p className='mb-0'>arianagrande@gmail.com</p>
-            <a href='#'>Setting</a>
+            <a href='/'>Setting</a>
           </div>
           <div className='buttonSection text-end'>
             <button

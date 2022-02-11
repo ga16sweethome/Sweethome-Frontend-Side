@@ -1,9 +1,14 @@
-import {Accordion} from 'react-bootstrap'
+import {Accordion, Button} from 'react-bootstrap';
+import {useState} from 'react';
+import PaymentModal from './PaymentModal';
+import CancelModal from './CanceLModal';
 
 const ProjectResume = ()=>{
+   const [paymentShow, setPaymentShow] = useState(false);
+   const [cancelShow, setCancelShow] = useState(false);
    return(
       <div className="projectResume">
-         <Accordion defaultActiveKey={['0']} alwaysOpen>
+         <Accordion defaultActiveKey={['0']}>
             <Accordion.Item className="border-secondary shadow p-3 mb-5 bg-body" eventKey="0">
                <Accordion.Header>
                <div className="d-flex flex-column w-100">
@@ -54,8 +59,27 @@ const ProjectResume = ()=>{
                                  <div className="fw-bold">Palm Beach, Pakuwon City, Surabaya</div>
                               </div>
                            </div>
-                           <div className="uploadReceipt col-4">
-                              receipt
+                           <div className="uploadReceipt col-4 text-end">
+                              <div className="buttonUpload">
+                                 <Button variant="primary" className="px-5" onClick={() => setPaymentShow(true)}>
+                                    Upload Receipt
+                                 </Button>
+                              </div>
+                              <div className="cancelRequest pt-2">
+                                 <span className="text-ash" onClick={() => setCancelShow(true)}>
+                                    Request Cancellation
+                                 </span>
+                              </div>
+                              <div className="showModal">
+                                 <PaymentModal
+                                    show={paymentShow}
+                                    onHide={() => setPaymentShow(false)}
+                                 />
+                                 <CancelModal
+                                    show={cancelShow}
+                                    onHide={() => setCancelShow(false)}
+                                 />
+                              </div>
                            </div>
                         </div>
                         <div className="billing mt-5">

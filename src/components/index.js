@@ -1,5 +1,5 @@
 export { default as ProjectCard } from './cards/ProjectCard';
-export { default as DesignerBiografiSection } from './homepages/DesignerBiografiSection' 
+export { default as DesignerBiografiSection } from './homepages/DesignerBiografiSection';
 export { default as WhatWeDoSection } from './homepages/WhatWeDoSection';
 export { default as ProductHighlight } from './homepages/ProductHighlight';
 export { default as OurWorkSection } from './homepages/OurWorkSection';
@@ -13,3 +13,10 @@ export { default as Page404 } from './404/Page404';
 export { default as CardLoading } from './loading/CardLoading';
 export { default as FilterLoading } from './loading/FilterLoading';
 export { default as Footer } from './homepages/Footer';
+export { default as TestimonyCard } from './cards/TestimonyCard';
+export { default as TestimonyCardsSlider } from './homepages/TestimonyCardsSlider';
+export { default as ProjectDetails } from './projectDetails/ProjectDetails';
+export { default as ImageCard } from './cards/ImageCard';
+export { default as PropertyDetails } from './projectDetails/PropertyDetails';
+export { default as GaleriView } from './projectDetails/GaleriView';
+

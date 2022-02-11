@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const ProductHighlight = () => {
   const [category, setCategory] = useState('');
-  const [image, setImage] = useState({ kitchen });
+  const [image, setImage] = useState( kitchen );
 
   useEffect(() => {
     axios
@@ -16,7 +16,7 @@ const ProductHighlight = () => {
         const data = response.data.result[0].image;
         setImage(data);
       });
-  }, [category]);
+  }, [category]); 
 
   return (
     <div className='productHighlight d-flex '>
