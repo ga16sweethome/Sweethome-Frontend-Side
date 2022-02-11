@@ -1,6 +1,8 @@
 // import { Route, Routes } from 'react-router-dom';
 // import { HomePage, Showcase, DashboardPage, NotFoundPages } from './pages';
-import ShowCaseAllVew from './components/homepages/ShowCaseAllVew';
+
+// import ShowCaseAllVew  from './components/projectDetails/ShowCaseAllVew';
+import Project from './pages/Project'
 
 function App() {
   return (
@@ -10,7 +12,10 @@ function App() {
     //   <Route path='dashboard' element={<DashboardPage />} />
     //   <Route path='*' element={<NotFoundPages />} />
     // </Routes>
-    <ShowCaseAllVew/>
+    
+    // <ShowCaseAllVew/>
+    <Project/>
+    
     
   );
 }
