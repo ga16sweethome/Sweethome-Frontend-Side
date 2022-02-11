@@ -15,7 +15,7 @@ export { default as FilterLoading } from './loading/FilterLoading';
 export { default as Footer } from './homepages/Footer';
 export { default as TestimonyCard } from './cards/TestimonyCard';
 export { default as TestimonyCardsSlider } from './homepages/TestimonyCardsSlider';
-export {default as ShowCaseAllVew } from './projectDetails/ShowCaseAllVew';
+export { default as ShowCaseAllVew } from './projectDetails/ShowCaseAllVew';
 export { default as FormEnquiryDetails } from './forms/FormEnquiryDetails';
 export { default as ProjectDetails } from './projectDetails/ProjectDetails';
 export { default as ImageCard } from './cards/ImageCard';
@@ -23,3 +23,4 @@ export { default as PropertyDetails } from './projectDetails/PropertyDetails';
 export { default as GaleriView } from './projectDetails/GaleriView';
 
 export { default as AppointmentDate } from './forms/AppointmentDate';
+export { default as AppointmentReviews } from './forms/AppointmentReviews';

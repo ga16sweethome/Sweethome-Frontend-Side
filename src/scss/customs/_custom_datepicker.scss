@@ -1,5 +1,20 @@
 .custom-datepicker {
-  .react-datepicker__header {
-    background-color: $cloud;
+  .react-datepicker {
+    .react-datepicker__triangle {
+      position: absolute;
+      left: 0px;
+      transform: translate(15px, 0px) !important;
+    }
+
+    .react-datepicker__header {
+      background-color: $cloud;
+    }
+
+    .react-datepicker__month-container {
+      .react-datepicker__day--selected {
+        background-color: $info;
+        font-weight: 600;
+      }
+    }
   }
 }

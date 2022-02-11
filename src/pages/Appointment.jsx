@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { Container, Nav, Tab } from 'react-bootstrap';
-import { AppointmentDate, FormEnquiryDetails } from '../components';
+import {
+  AppointmentDate,
+  AppointmentReviews,
+  FormEnquiryDetails,
+} from '../components';
 import Default from '../layouts/Default';
 
 const Appointment = () => {
-  const [activeTab, setActiveTab] = useState('enquiryDetails');
+  const [activeTab, setActiveTab] = useState('reviews');
   return (
     <Default>
       <div className='Appointment'></div>
@@ -46,7 +50,7 @@ const Appointment = () => {
               <AppointmentDate />
             </Tab.Pane>
             <Tab.Pane eventKey='reviews' className='container'>
-              <h1>Ini Tabs Reviews</h1>
+              <AppointmentReviews />
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
