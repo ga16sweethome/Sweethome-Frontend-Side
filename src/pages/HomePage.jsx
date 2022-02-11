@@ -5,7 +5,6 @@ import {
   OurWorkSection,
   WhatWeDoSection,
   DesignerBiografiSection,
-  Footer,
   TestimonyCardsSlider,
 } from '../components';
 
@@ -19,7 +18,6 @@ const HomePage = () => {
         <ProductHighlight />
         <TestimonyCardsSlider />
         <DesignerBiografiSection />
-        <Footer />
       </div>
     </LandingPage>
   );

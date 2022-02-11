@@ -1,11 +1,11 @@
-import { Container } from 'react-bootstrap';
-import { NavbarSection } from '../components';
+import { Footer, NavbarSection } from '../components';
 
 const Default = (props) => {
   return (
     <>
       <NavbarSection background={true} />
-      <Container>{props.children}</Container>
+      <div className='mt-5'>{props.children}</div>
+      <Footer />
     </>
   );
 };
