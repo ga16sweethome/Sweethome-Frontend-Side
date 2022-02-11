@@ -1,8 +1,14 @@
 import { HeartIcons } from '../../assets';
 import {PropertyDetails, ImageCard} from '../../components'
+import {useState} from 'react';
+import GaleriView from './GaleriView';
 import Kitchen from '../../assets/kitchen.jpg';
+import ShowCaseAllVew from './ShowCaseAllVew';
 
 const ProjectDetails = ()=>{
+   const [showAllVew, setShowAllVew] = useState(false);
+   const [show, setShow] = useState(false);
+
    return(
       <div className="projectDetails">
          <div className="row pb-4">
@@ -24,15 +30,17 @@ const ProjectDetails = ()=>{
          <div className="row">
             <div className="col-7">
                <div className="row pb-3">
-                  <ImageCard
-                     image = {Kitchen}
-                     title = "Living Room"
-                     classTitle = "mb-0 fs-6 fw-bold"
-                     classOverlay = "d-flex align-items-end"
-                  />
+                  <div className="col me-2" onClick={()=>setShow(true)}>
+                     <ImageCard
+                        image = {Kitchen}
+                        title = "Living Room"
+                        classTitle = "mb-0 fs-6 fw-bold"
+                        classOverlay = "d-flex align-items-end"
+                     />
+                  </div>
                </div>
                <div className="row d-flex flex-wrap pt-2">
-                  <div className="col">
+                  <div className="col" onClick={()=>setShow(true)}>
                      <ImageCard
                         image = {Kitchen}
                         title = "Living Room"
@@ -40,7 +48,7 @@ const ProjectDetails = ()=>{
                         classOverlay = "d-flex align-items-end"
                      />
                   </div>
-                  <div className="col">
+                  <div className="col" onClick={()=>setShow(true)}>
                      <ImageCard
                         image = {Kitchen}
                         title = "Living Room"
@@ -48,7 +56,7 @@ const ProjectDetails = ()=>{
                         classOverlay = "d-flex align-items-end"
                      />
                   </div>
-                  <div className="col">
+                  <div className=" allImage col" onClick={() => setShowAllVew(true)}>
                      <ImageCard
                         image = {Kitchen}
                         title = "View All 18 Photos"
@@ -61,6 +69,21 @@ const ProjectDetails = ()=>{
             <div className="col">
                <PropertyDetails/>
             </div>
+            <div className="showAllVew">
+               <ShowCaseAllVew
+               show={showAllVew}
+               onHide={() => setShowAllVew(false)}
+               dialogClassName="modal-fullscreen"
+               aria-labelledby="example-custom-modal-styling-title"/>
+            </div>
+         </div>
+         <div className="showImageModal">
+            <GaleriView
+               show={show}
+               onHide={() => setShow(false)}
+               dialogClassName="modal-fullscreen"
+               aria-labelledby="example-custom-modal-styling-title"
+            />
          </div>
       </div>
    )

@@ -1,0 +1,100 @@
+.loginForm-wrapper{
+    display: flex;
+    // position: fixed;
+    // width:80vw;
+    // height: 80vh;
+    width: 100%;
+    height: 100%;
+    // top: 0;
+    // left: 0;
+    // z-index: 1050;
+
+    .welcome-text {
+        color: white;
+        align-self: flex-end;
+        // position: absolute;
+        // top: 559px;
+        padding: 43px;
+        // padding-top: 200px;
+
+        .textWelcome {
+            font-size: 32px;
+            font-weight: 700;
+
+            p {
+                font-weight: 400;
+                font-size: 19px;
+            }
+        }
+    }
+
+
+    .background-login {
+        display: flex;
+        width: 50%;
+        background: url("../../../assets/img/Rectangle\ 19.png");
+        background-size: cover;
+
+    }
+
+    .login {
+        width: 50%;
+        background-color: white;
+    
+        .login-close {
+            position: absolute;
+            top:10.5px;
+            right: 22.5px;
+            background:transparent;
+            border: none;
+        } .login-text {
+            margin-top: 40px;
+            margin-left: 59px;
+
+            .Text {
+                font-weight: 700;
+                font-size: 32px;
+            }
+
+            p{
+                font-weight: 400;
+                font-size: 14px;
+            }
+        } .form-login { 
+            padding: 30px;
+
+
+            .showIcon {
+                margin-left: 810px;
+                margin-top: 200px;
+            }
+
+            .form-control {
+                height: 50px;
+            }
+        }
+    } .button-login {
+        margin: auto;
+        display: block;
+        width: 275px;
+        height: 55px;
+    }
+
+    } .button-social {
+        margin-top: 30px;
+        justify-content: center;
+        width: 100%;
+        height: 42px;
+        display: flex;
+        gap: 50px;
+
+        button {
+            width: 164px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+} 
+
