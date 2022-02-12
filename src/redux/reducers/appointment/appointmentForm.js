@@ -3,9 +3,21 @@ import {
   SET_SECTIONS,
   SET_STYLES,
   GET_STYLES,
+  GET_SERVICES_TYPE,
+  GET_BUILDING_TYPE,
 } from '../../constants';
 
 const initialState = {
+  buildingType: {
+    loading: false,
+    result: null,
+    error: false,
+  },
+  servicesType: {
+    loading: false,
+    result: null,
+    error: false,
+  },
   sections: {
     loading: false,
     result: null,
@@ -21,10 +33,37 @@ const initialState = {
 const appointmentForm = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case GET_BUILDING_TYPE:
+      return {
+        ...state,
+        buildingType: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
+        },
+      };
+    case GET_SERVICES_TYPE:
+      return {
+        ...state,
+        servicesType: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
+        },
+      };
     case GET_SECTIONS:
       return {
         ...state,
         sections: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
+        },
+      };
+    case GET_STYLES:
+      return {
+        ...state,
+        styles: {
           loading: payload.loading,
           result: payload.result,
           error: payload.error,
@@ -36,15 +75,6 @@ const appointmentForm = (state = initialState, action) => {
         sections: {
           ...state.sections,
           result: payload,
-        },
-      };
-    case GET_STYLES:
-      return {
-        ...state,
-        styles: {
-          loading: payload.loading,
-          result: payload.result,
-          error: payload.error,
         },
       };
     case SET_STYLES:

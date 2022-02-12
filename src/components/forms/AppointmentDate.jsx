@@ -26,9 +26,10 @@ const AppointmentDate = () => {
 
       <div className='bg-cloud rounded p-4 my-7'>
         <h6 className='fw-bold mb-4'>Select appointment time</h6>
-        {timeSlot.map((time) => (
+        {timeSlot.map((time, idx) => (
           <Form.Check
             className='mb-2'
+            key={idx}
             type='radio'
             name='time-slot'
             id={time.replace(' ', '-')}

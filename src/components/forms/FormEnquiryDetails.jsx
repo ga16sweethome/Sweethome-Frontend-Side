@@ -16,6 +16,8 @@ import {
   setStyles,
   getSections,
   getStyles,
+  getServicesType,
+  getBuildingType,
 } from '../../redux/actionCreators/appointmentAction';
 
 const validationSchema = Yup.object().shape({
@@ -31,15 +33,21 @@ const validationSchema = Yup.object().shape({
 
 const EnquiryDetails = () => {
   const dispatch = useDispatch();
-  const { sections, styles } = useSelector((state) => state.appointment);
+  const { sections, styles, servicesType, buildingType } = useSelector(
+    (state) => state.appointment
+  );
 
   useEffect(() => {
     dispatch(getSections());
     dispatch(getStyles());
+    dispatch(getServicesType());
+    dispatch(getBuildingType());
   }, [dispatch]);
 
   console.log('sections:', sections);
   console.log('styles:', styles);
+  console.log('servicesType:', servicesType);
+  console.log('buildingType:', buildingType);
 
   const checkboxSections = (e, idx, arr) => {
     const checked = e.target.checked;
@@ -93,9 +101,12 @@ const EnquiryDetails = () => {
                   value={values.buildingType}
                   isInvalid={touched.buildingType && !!errors.buildingType}>
                   <option value=''>Open this select menu</option>
-                  <option value='one'>One</option>
-                  <option value='two'>Two</option>
-                  <option value='three'>Three</option>
+                  {buildingType.result &&
+                    buildingType.result.map((type, idx) => (
+                      <option key={idx} value={type.name}>
+                        {type.name}
+                      </option>
+                    ))}
                 </Form.Select>
                 <Form.Control.Feedback type='invalid'>
                   {touched.buildingType &&
@@ -116,9 +127,12 @@ const EnquiryDetails = () => {
                   value={values.serviceType}
                   isInvalid={touched.serviceType && !!errors.serviceType}>
                   <option value=''>Open this select menu</option>
-                  <option value='1'>One</option>
-                  <option value='2'>Two</option>
-                  <option value='3'>Three</option>
+                  {servicesType.result &&
+                    servicesType.result.map((type, idx) => (
+                      <option key={`services-${idx}`} value={type.name}>
+                        {type.name}
+                      </option>
+                    ))}
                 </Form.Select>
                 <Form.Control.Feedback type='invalid'>
                   {touched.serviceType &&
