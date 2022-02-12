@@ -1,8 +1,10 @@
 import { HeartIcons } from '../../assets';
 import {PropertyDetails, ImageCard} from '../../components'
+import {Button} from 'react-bootstrap';
 import {useState} from 'react';
 import GaleriView from './GaleriView';
 import Kitchen from '../../assets/kitchen.jpg';
+import icon from '../../assets/icons/svg/plus.svg';
 import ShowCaseAllVew from './ShowCaseAllVew';
 
 const ProjectDetails = ()=>{
@@ -21,6 +23,12 @@ const ProjectDetails = ()=>{
                </div>
             </div>
             <div className="col d-flex align-items-center justify-content-end">
+               <div className="appointmentButton me-4">
+                  <Button className="px-4" variant="primary">
+                     <img src={icon} alt="add icon" />
+                     <span className="ps-3">Create Appointment</span>
+                  </Button>
+               </div>
                <div className="favouriteButton bg-light px-2 py-1 rounded-circle shadow bg-body rounded">
                   <HeartIcons/>
                </div>

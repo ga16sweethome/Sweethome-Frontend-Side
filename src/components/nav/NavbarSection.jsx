@@ -1,13 +1,14 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/icons/svg/SweetHome.svg';
-import { useState } from 'react';
-import LoginForm from '../login/LoginForm';
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link, Route, Routes } from "react-router-dom";
+import Logo from "../../assets/icons/svg/SweetHome.svg";
+import { useState } from "react";
+import { Login, Register } from "../../components";
 
 const NavbarSection = (props) => {
   const background = props.background;
 
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   return (
     <div className='NavbarSection'>
@@ -43,6 +44,10 @@ const NavbarSection = (props) => {
                 Login
               </Nav.Link>
               <Nav.Link
+                  onClick={(e) => {
+                     e.preventDefault();
+                     setShowRegister(true);
+                   }}
                 as={Link}
                 to='/signup'
                 className='fw-bold text-secondary'>
@@ -51,7 +56,8 @@ const NavbarSection = (props) => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-        <LoginForm show={showLogin} onHide={() => setShowLogin(false)} />
+        <Login show={showLogin} onHide={() => setShowLogin(false)} />
+        <Register show={showRegister} onHide={() => setShowRegister(false)} />
       </Navbar>
 
       {/* {showLogin && <LoginForm onClose={() => {

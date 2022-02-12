@@ -1,8 +1,11 @@
 import image from '../../assets/img/profile.jpg';
 import icon from '../../assets/icons/svg/plus.svg';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import ProfileSetting from './ProfileSetting';
 
 const Profile = () => {
+   const [showSetting, setShowSetting] = useState(false);
   return (
     <div className='profileSection'>
       <div className='d-flex flex-column mx-auto'>
@@ -16,7 +19,12 @@ const Profile = () => {
           <div className='detailProfile ps-4'>
             <h4 className='mb-0 fw-bold'>Ariana Grande</h4>
             <p className='mb-0'>arianagrande@gmail.com</p>
-            <a href='/'>Setting</a>
+            <button 
+               className="border-0 bg-transparent p-0"
+               onClick={() => setShowSetting(true)} 
+            >
+               Setting
+            </button>
           </div>
           <div className='buttonSection text-end'>
             <button
@@ -34,6 +42,12 @@ const Profile = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div className="showSetting">
+         <ProfileSetting
+            show={showSetting}
+            onHide={() => setShowSetting(false)}
+         />
       </div>
     </div>
   );
