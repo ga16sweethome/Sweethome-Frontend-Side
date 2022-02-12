@@ -4,7 +4,79 @@ import {
   SET_STYLES,
   GET_SECTIONS,
   GET_STYLES,
+  GET_SERVICES_TYPE,
+  GET_BUILDING_TYPE,
 } from '../constants';
+
+export const getBuildingType = () => (dispatch) => {
+  dispatch({
+    type: GET_BUILDING_TYPE,
+    payload: {
+      loading: true,
+      result: null,
+      error: false,
+    },
+  });
+  axios({
+    method: 'get',
+    url: `${process.env.REACT_APP_BASE_API}content/buildingtype`,
+  })
+    .then((response) => {
+      dispatch({
+        type: GET_BUILDING_TYPE,
+        payload: {
+          loading: false,
+          result: response.data,
+          error: false,
+        },
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: GET_BUILDING_TYPE,
+        payload: {
+          loading: false,
+          result: null,
+          error: error.message,
+        },
+      });
+    });
+};
+
+export const getServicesType = () => (dispatch) => {
+  dispatch({
+    type: GET_SERVICES_TYPE,
+    payload: {
+      loading: true,
+      result: null,
+      error: false,
+    },
+  });
+  axios({
+    method: 'get',
+    url: `${process.env.REACT_APP_BASE_API}content/servicetype`,
+  })
+    .then((response) => {
+      dispatch({
+        type: GET_SERVICES_TYPE,
+        payload: {
+          loading: false,
+          result: response.data,
+          error: false,
+        },
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: GET_SERVICES_TYPE,
+        payload: {
+          loading: false,
+          result: null,
+          error: error.message,
+        },
+      });
+    });
+};
 
 export const getSections = () => (dispatch) => {
   dispatch({
