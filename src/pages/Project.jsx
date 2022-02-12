@@ -8,7 +8,7 @@ import { HomeIcons } from '../assets';
 const Project = ()=>{
    return(
       <Default>
-         <div className="projectPage py-5">
+         <div className="projectPage mx-auto">
             <Breadcrumb className='mt-4 py-3'>
                <span className='text-ash me-3'>
                <HomeIcons />

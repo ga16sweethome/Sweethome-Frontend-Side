@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
@@ -68,7 +68,7 @@ const LoginForm = (props) => {
                <div className=" border-bottom border-ash pb-5">
                <div className="form-login">
                   <Form.Group className="mb-3" controlId="formBasicEmail">
-                     <Form.Label>Email address</Form.Label>
+                     <Form.Label>Email Address</Form.Label>
                      <Form onSubmit={formik.handleSubmit}>
                      <Form.Control
                         type="email"
@@ -84,10 +84,21 @@ const LoginForm = (props) => {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label>Password</Form.Label>
-                     <Form.Control type="password" placeholder="Password" />
-                     <icon className="showIcon">
-                     <AiOutlineEyeInvisible />
-                     </icon>
+                     <div className="formWrapper d-flex border border-gray-400 rounded">
+                        <Form.Control 
+                           className="border-0" 
+                           type={showPassword ? "text" : "password"} 
+                           placeholder="Password" />
+                        <Button 
+                           className="showIcon bg-transparent text-dark border-0 shadow-none"
+                           onClick={(e) => {
+                              e.preventDefault();
+                              setShowPassword(!showPassword);
+                           }}
+                        >
+                           {showPassword ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}
+                        </Button>
+                     </div>
                   </Form.Group>
                </div>
                <Button className="button-login" variant="secondary">
