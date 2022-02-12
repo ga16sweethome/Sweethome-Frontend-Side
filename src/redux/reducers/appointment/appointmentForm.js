@@ -1,62 +1,88 @@
-import { SET_CHECKBOX_SECTIONS, SET_CHECKBOX_STYLES } from '../../constants';
+import {
+  GET_SECTIONS,
+  SET_SECTIONS,
+  SET_STYLES,
+  GET_STYLES,
+  GET_SERVICES_TYPE,
+  GET_BUILDING_TYPE,
+} from '../../constants';
 
 const initialState = {
-  enquiryDetails: {
-    buildingType: [],
-    checkbox: {
-      sections: {
-        'Living Room': false,
-        'Dining Room': false,
-        Kitchen: false,
-        Bedroom: false,
-        Study: false,
-        Office: false,
-        Outdoor: false,
-      },
-      styles: {
-        Modern: false,
-        Contemporary: false,
-        Minimalist: false,
-        Industrial: false,
-        Scandinavian: false,
-        Traditional: false,
-        Natural: false,
-        Rustic: false,
-        Bohemian: false,
-      },
-    },
+  buildingType: {
+    loading: false,
+    result: null,
+    error: false,
+  },
+  servicesType: {
+    loading: false,
+    result: null,
+    error: false,
+  },
+  sections: {
+    loading: false,
+    result: null,
+    error: false,
+  },
+  styles: {
+    loading: false,
+    result: null,
+    error: false,
   },
 };
 
 const appointmentForm = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case SET_CHECKBOX_SECTIONS:
+    case GET_BUILDING_TYPE:
       return {
         ...state,
-        enquiryDetails: {
-          ...state.enquiryDetails,
-          checkbox: {
-            ...state.enquiryDetails.checkbox,
-            sections: {
-              ...state.enquiryDetails.checkbox.sections,
-              ...payload,
-            },
-          },
+        buildingType: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
         },
       };
-    case SET_CHECKBOX_STYLES:
+    case GET_SERVICES_TYPE:
       return {
         ...state,
-        enquiryDetails: {
-          ...state.enquiryDetails,
-          checkbox: {
-            ...state.enquiryDetails.checkbox,
-            styles: {
-              ...state.enquiryDetails.checkbox.styles,
-              ...payload,
-            },
-          },
+        servicesType: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
+        },
+      };
+    case GET_SECTIONS:
+      return {
+        ...state,
+        sections: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
+        },
+      };
+    case GET_STYLES:
+      return {
+        ...state,
+        styles: {
+          loading: payload.loading,
+          result: payload.result,
+          error: payload.error,
+        },
+      };
+    case SET_SECTIONS:
+      return {
+        ...state,
+        sections: {
+          ...state.sections,
+          result: payload,
+        },
+      };
+    case SET_STYLES:
+      return {
+        ...state,
+        styles: {
+          ...state.styles,
+          result: payload,
         },
       };
     default:

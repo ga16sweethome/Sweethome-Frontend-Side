@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { Container, Nav, Tab } from 'react-bootstrap';
-import { FormEnquiryDetails } from '../components';
+import {
+  AppointmentDate,
+  AppointmentReviews,
+  FormEnquiryDetails,
+} from '../components';
 import Default from '../layouts/Default';
 
 const Appointment = () => {
   const [activeTab, setActiveTab] = useState('enquiryDetails');
   return (
     <Default>
+      <div className='Appointment'></div>
       <div className='Appointment pt-3'>
         <header className='bg-secondary'>
           <Container className='py-5'>
@@ -42,10 +47,10 @@ const Appointment = () => {
               <FormEnquiryDetails />
             </Tab.Pane>
             <Tab.Pane eventKey='appointmentDate' className='container'>
-              <h1>Ini Tabs Appoint Date</h1>
+              <AppointmentDate />
             </Tab.Pane>
             <Tab.Pane eventKey='reviews' className='container'>
-              <h1>Ini Tabs Reviews</h1>
+              <AppointmentReviews />
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>

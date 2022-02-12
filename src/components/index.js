@@ -23,3 +23,5 @@ export { default as PropertyDetails } from './projectDetails/PropertyDetails';
 export { default as GaleriView } from './projectDetails/GaleriView';
 export { default as Login } from './login/LoginForm';
 export { default as Register } from './login/Register';
+export { default as AppointmentDate } from './forms/AppointmentDate';
+export { default as AppointmentReviews } from './forms/AppointmentReviews';

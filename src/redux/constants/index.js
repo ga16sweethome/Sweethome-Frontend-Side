@@ -6,5 +6,9 @@ export const SET_PAGES = 'SET_PAGES';
 export const RESET_FILTER = 'RESET_FILTER';
 
 // Constant for reducer type appointmentForm
-export const SET_CHECKBOX_SECTIONS = 'SET_CHECKBOX_SECTIONS';
-export const SET_CHECKBOX_STYLES = 'SET_CHECKBOX_STYLES';
+export const GET_SERVICES_TYPE = 'GET_SERVICES_TYPE';
+export const GET_BUILDING_TYPE = 'GET_BUILDING_TYPE';
+export const GET_SECTIONS = 'GET_SECTIONS';
+export const GET_STYLES = 'GET_STYLES';
+export const SET_SECTIONS = 'SET_SECTIONS';
+export const SET_STYLES = 'SET_STYLES';

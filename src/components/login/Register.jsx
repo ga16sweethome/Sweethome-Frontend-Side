@@ -58,7 +58,7 @@ const Register = (props) => {
                            </Col>
                         </Row>
                      </Form>
-                     <Form>
+                     <Form className="pb-2">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
                            type="email"
@@ -105,7 +105,7 @@ const Register = (props) => {
                      </Form>
                   </div>
                   <Button className="button-signUp mx-auto my-3 fw-bold" variant="secondary">
-                     Login
+                     Sign Up
                   </Button>
                </div>
                <div className="button-social">
