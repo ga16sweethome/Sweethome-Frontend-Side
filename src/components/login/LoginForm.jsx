@@ -6,34 +6,38 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
-   const [showPassword, setShowPassword] = useState(false)
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
+   const [showPassword, setShowPassword] = useState(false);
 
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email('Invalid email address')
-        .required('Please enter your email'),
-      password: Yup.string()
-        .min(8, 'minimun 8 characters')
-        .max(10, 'maximum 10 characters')
-        .required('Please enter your password'),
-    }),
+   const login = (values) => {
+      const data = {
+         email: values.email,
+         password: values.password,
+      };
 
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      // const data = {
-      //   email: values.email,
-      //   password: values.password,
-      // };
-    },
-  });
+      formik.setSubmitting(false);
+   };
+
+   const formik = useFormik({
+      initialValues: {
+         email: '',
+         password: '',
+      },
+
+      validationSchema: Yup.object({
+         email: Yup.string().required('Please enter your email'),
+         password: Yup.string().required('Please enter your password'),
+      }),
+
+      onSubmit : login,
+   });
+
+   const isError = {
+      email: formik.touched.email && formik.errors.email,
+      password: formik.touched.password && formik.errors.password,
+   };
+
   return (
     <div className='loginModal d-flex'>
       <Modal
@@ -63,33 +67,36 @@ const LoginForm = (props) => {
                <div className="login-text">
                <h1 className="Text">Login</h1>
                <p>
-                  Don’t have account? <a href="#">Sign Up</a>
+                  Don’t have account? <button className="btn">Sign Up</button>
                </p>
                </div>
                <div className=" border-bottom border-ash pb-5">
                <div className="form-login">
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                     <Form.Label>Email Address</Form.Label>
-                     <Form onSubmit={formik.handleSubmit}>
+                  <Form onSubmit={formik.handleSubmit}>
+                     <Form.Label className="pt-2">Email Address</Form.Label>
                      <Form.Control
                         type="email"
                         placeholder="Enter email"
-                        onChange={formik.handleChange}
-                        // value={formik.values.email}
-                      />
-                      <p>{formik.errors.email}</p>
-                      <Form.Text className='text-muted'>
-                        We'll never share your email with anyone else.
-                      </Form.Text>
-                    </Form>
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
-                     <Form.Label>Password</Form.Label>
-                     <div className="formWrapper d-flex border border-gray-400 rounded">
+                        name="email"
+                        className={isError.email && "border-danger"}
+                        {...formik.getFieldProps("email")}
+                     />
+                     {isError.email && (
+                        <div className="text-danger" style={{fontSize:"12px"}}>{formik.errors.email}</div>
+                     )} 
+                     <Form.Label className="pt-2">Password</Form.Label>
+                     <div 
+                        className={`${isError.password && "border-danger"} 
+                           formWrapper d-flex border border-gray-400 rounded`
+                        }
+                     >
                         <Form.Control 
                            className="border-0" 
                            type={showPassword ? "text" : "password"} 
-                           placeholder="Password" />
+                           placeholder="Password" 
+                           name="password"
+                           {...formik.getFieldProps("password")}
+                        />
                         <Button 
                            className="showIcon bg-transparent text-dark border-0 shadow-none"
                            onClick={(e) => {
@@ -100,7 +107,10 @@ const LoginForm = (props) => {
                            {showPassword ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}
                         </Button>
                      </div>
-                  </Form.Group>
+                     {isError.password && (
+                        <div className="text-danger" style={{fontSize:"12px"}}>{formik.errors.password}</div>
+                     )} 
+                  </Form>
                 </div>
                 <Button className='button-login' variant='secondary'>
                   <b>Login</b>
