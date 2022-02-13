@@ -84,15 +84,15 @@ const Register = (props) => {
                   <button onClick={() => props.onHide()} className="login-close">
                   &#10005;
                   </button>
-                  <div className="signUp-text px-5 pt-3">
+                  <div className="signUp-text px-5 pt-5">
                   <h2 className="fw-bold">Sign Up</h2>
                   <p>
                      Already have account? <button className="btn" >Login</button>
                   </p>
                   </div>
-                  <div className=" border-bottom border-ash py-2">
+                  <div className=" border-bottom border-ash">
                      <div className="form-signUp px-5">
-                        <Form className="pb-2" onSubmit={formik.handleSubmit} >
+                        <Form onSubmit={formik.handleSubmit} >
                            <Row>
                               <Col>
                                  <Form.Label className="mb-0">First Name</Form.Label>
@@ -200,10 +200,6 @@ const Register = (props) => {
             </div>
             </Modal.Body>
          </Modal>
-         {/* <Login
-            show={showLogin}
-            onHide={() => setShowLogin(false)}
-         /> */}
       </div>
    );
 };
