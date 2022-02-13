@@ -1,14 +1,18 @@
 import React from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { GiCheckMark } from 'react-icons/gi';
+import { useSelector } from 'react-redux';
+import { rupiahFormatter } from '../../utility/number';
 
 const AppointmentReviews = () => {
+  const { reviews } = useSelector((state) => state.appointment);
+
   return (
     <div className='py-7 px-5'>
       <Row className='mb-5'>
         <Col xs={2}>
           <p className='fw-light text-ash m-0'>Building Type</p>
-          <p className='fw-bold m-0'>House</p>
+          <p className='fw-bold m-0'>{reviews.buildingType}</p>
         </Col>
         <Col xs={2}>
           <p className='fw-light text-ash m-0'>Area Size</p>
@@ -16,17 +20,17 @@ const AppointmentReviews = () => {
         </Col>
         <Col xs={3}>
           <p className='fw-light text-ash m-0'>Estimated Work Duration</p>
-          <p className='fw-bold m-0'>1 Month</p>
+          <p className='fw-bold m-0'>{reviews.estimatedWorkDuration} Week(s)</p>
         </Col>
         <Col xs={3}>
           <p className='fw-light text-ash m-0'>Budget</p>
-          <p className='fw-bold m-0'>Rp. 1.000.000.000</p>
+          <p className='fw-bold m-0'>{rupiahFormatter(reviews.budget)}</p>
         </Col>
       </Row>
       <Row className='mb-5'>
         <Col>
           <p className='fw-light text-ash m-0'>Address</p>
-          <p className='fw-bold m-0'>Palm Beach, Pakuwon City, Surabaya</p>
+          <p className='fw-bold m-0'>{reviews.address}</p>
         </Col>
       </Row>
       <Row className='mb-5'>
@@ -38,13 +42,7 @@ const AppointmentReviews = () => {
       <Row className='mb-5'>
         <Col className='bg-wheat p-4'>
           <p className='fw-bold'>Note</p>
-          <p>
-            Get free professional consultation. Volutpat, risus sit augue at
-            amet orci mauris viverra.
-            <br />
-            Get free professional consultation. Volutpat, risus sit augue at
-            amet orci mauris viverra.
-          </p>
+          <p>{reviews.note}</p>
         </Col>
       </Row>
       <div className='d-flex'>

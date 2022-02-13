@@ -1,16 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Nav, Tab } from 'react-bootstrap';
-import {
-  AppointmentDate,
-  AppointmentReviews,
-  FormEnquiryDetails,
-} from '../components';
+import { Outlet, useNavigate } from 'react-router-dom';
+// import {
+//   AppointmentDate,
+//   AppointmentReviews,
+//   FormEnquiryDetails,
+// } from '../components';
 import Default from '../layouts/Default';
 
 const Appointment = () => {
   const [activeTab, setActiveTab] = useState('enquiryDetails');
-  const [dateTab, setDateTab] = useState(false);
-  const [reviewTab, setReviewTab] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    switch (activeTab) {
+      case 'enquiryDetails':
+        navigate('enquirydetails');
+        break;
+      case 'appointmentDate':
+        navigate('date');
+        break;
+      case 'reviews':
+        navigate('reviews');
+        break;
+      default:
+        navigate('enquirydetails');
+        break;
+    }
+  }, [activeTab, navigate]);
+
+  // hanya sementara selama fitur login / register belum jalan
+  useEffect(() => {
+    localStorage.setItem(
+      'token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoia2VuQHByb2c4LmNvbSIsIm5hbWUiOiJLZW4gVGhlIE5pbmphIiwicGljdHVyZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RqZWV3bWNkcC9pbWFnZS91cGxvYWQvdjE2NDQwODA1Njgvc3dlZXRob21lL2FwYWthaF92aTV4YjkucG5nIiwicGhvbmUiOiIrNjIgODExMSAyMjIyIDIyMjIiLCJpYXQiOjE2NDQ3Mzc4MjksImV4cCI6MTY0NDc1NTgyOX0.K7HEjMfkRJ1zW7_WONVQNgLTb3jamO_5SRf4LfSPWJ0'
+    );
+  }, []);
 
   return (
     <Default>
@@ -34,24 +60,18 @@ const Appointment = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link
-                  className='fw-bold'
-                  eventKey='appointmentDate'
-                  disabled={!dateTab}>
+                <Nav.Link className='fw-bold' eventKey='appointmentDate'>
                   Appointment Date
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link
-                  className='fw-bold'
-                  eventKey='reviews'
-                  disabled={!reviewTab}>
+                <Nav.Link className='fw-bold' eventKey='reviews'>
                   Reviews
                 </Nav.Link>
               </Nav.Item>
             </Nav>
           </div>
-          <Tab.Content>
+          {/* <Tab.Content>
             <Tab.Pane eventKey='enquiryDetails' className='container'>
               <FormEnquiryDetails
                 onSubmit={() => {
@@ -71,7 +91,8 @@ const Appointment = () => {
             <Tab.Pane eventKey='reviews' className='container'>
               <AppointmentReviews />
             </Tab.Pane>
-          </Tab.Content>
+          </Tab.Content> */}
+          <Outlet />
         </Tab.Container>
       </div>
     </Default>

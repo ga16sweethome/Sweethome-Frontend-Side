@@ -21,6 +21,7 @@ import {
   setReviews,
 } from '../../redux/actionCreators/appointmentAction';
 import { scrollToTop } from '../../utility/scroll';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
   buildingType: Yup.string().required('Required!'),
@@ -34,6 +35,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const EnquiryDetails = (props) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -68,7 +71,8 @@ const EnquiryDetails = (props) => {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           dispatch(setReviews(values));
-          props.onSubmit();
+          // props.onSubmit();
+          navigate('../reviews');
           scrollToTop();
         }}
         initialValues={{
