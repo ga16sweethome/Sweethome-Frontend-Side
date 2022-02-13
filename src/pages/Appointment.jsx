@@ -9,6 +9,9 @@ import Default from '../layouts/Default';
 
 const Appointment = () => {
   const [activeTab, setActiveTab] = useState('enquiryDetails');
+  const [dateTab, setDateTab] = useState(false);
+  const [reviewTab, setReviewTab] = useState(false);
+
   return (
     <Default>
       <div className='Appointment'></div>
@@ -31,12 +34,18 @@ const Appointment = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className='fw-bold' eventKey='appointmentDate'>
+                <Nav.Link
+                  className='fw-bold'
+                  eventKey='appointmentDate'
+                  disabled={!dateTab}>
                   Appointment Date
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className='fw-bold' eventKey='reviews'>
+                <Nav.Link
+                  className='fw-bold'
+                  eventKey='reviews'
+                  disabled={!reviewTab}>
                   Reviews
                 </Nav.Link>
               </Nav.Item>
@@ -44,10 +53,20 @@ const Appointment = () => {
           </div>
           <Tab.Content>
             <Tab.Pane eventKey='enquiryDetails' className='container'>
-              <FormEnquiryDetails />
+              <FormEnquiryDetails
+                onSubmit={() => {
+                  setActiveTab('appointmentDate');
+                  setDateTab(true);
+                }}
+              />
             </Tab.Pane>
             <Tab.Pane eventKey='appointmentDate' className='container'>
-              <AppointmentDate />
+              <AppointmentDate
+                onSubmit={() => {
+                  setActiveTab('reviews');
+                  setReviewTab(true);
+                }}
+              />
             </Tab.Pane>
             <Tab.Pane eventKey='reviews' className='container'>
               <AppointmentReviews />

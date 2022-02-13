@@ -12,3 +12,4 @@ export const GET_SECTIONS = 'GET_SECTIONS';
 export const GET_STYLES = 'GET_STYLES';
 export const SET_SECTIONS = 'SET_SECTIONS';
 export const SET_STYLES = 'SET_STYLES';
+export const SET_APPOINTMENT_REVIEWS = 'SET_APPOINTMENT_REVIEWS';

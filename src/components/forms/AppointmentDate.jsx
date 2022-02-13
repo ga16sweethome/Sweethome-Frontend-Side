@@ -19,6 +19,7 @@ const AppointmentDate = () => {
       <DatePicker
         id='input-datepicker'
         className='form-control py-2 w-50'
+        dateFormat='yyyy-MM-dd'
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         popperClassName='custom-datepicker'
@@ -32,6 +33,7 @@ const AppointmentDate = () => {
             key={idx}
             type='radio'
             name='time-slot'
+            disabled={false}
             id={time.replace(' ', '-')}
             label={time}
           />

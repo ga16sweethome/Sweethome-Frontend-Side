@@ -1,15 +1,14 @@
-import React from "react";
-import { Button, Form, Modal } from "react-bootstrap";
-import { BsGoogle } from "react-icons/bs";
-import { FaFacebookF } from "react-icons/fa";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useState } from "react";
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Button, Form, Modal } from 'react-bootstrap';
+import { BsGoogle } from 'react-icons/bs';
+import { FaFacebookF } from 'react-icons/fa';
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useState } from 'react';
 
 const LoginForm = (props) => {
-   const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -56,24 +55,24 @@ const LoginForm = (props) => {
                 </p>
               </div>
             </div>
-            <div className="login">
-               <button onClick={() => props.onHide()} className="login-close">
-               &#10005;
-               </button>
-               <div className="login-text">
-               <h1 className="Text">Login</h1>
-               <p>
-                  Don’t have account? <a href="#">Sign Up</a>
-               </p>
-               </div>
-               <div className=" border-bottom border-ash pb-5">
-               <div className="form-login">
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                     <Form.Label>Email Address</Form.Label>
-                     <Form onSubmit={formik.handleSubmit}>
-                     <Form.Control
-                        type="email"
-                        placeholder="Enter email"
+            <div className='login'>
+              <button onClick={() => props.onHide()} className='login-close'>
+                &#10005;
+              </button>
+              <div className='login-text'>
+                <h1 className='Text'>Login</h1>
+                <p>
+                  Don’t have account? <a href='#'>Sign Up</a>
+                </p>
+              </div>
+              <div className=' border-bottom border-ash pb-5'>
+                <div className='form-login'>
+                  <Form.Group className='mb-3' controlId='formBasicEmail'>
+                    <Form.Label>Email Address</Form.Label>
+                    <Form onSubmit={formik.handleSubmit}>
+                      <Form.Control
+                        type='email'
+                        placeholder='Enter email'
                         onChange={formik.handleChange}
                         // value={formik.values.email}
                       />
@@ -83,23 +82,27 @@ const LoginForm = (props) => {
                       </Form.Text>
                     </Form>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
-                     <Form.Label>Password</Form.Label>
-                     <div className="formWrapper d-flex border border-gray-400 rounded">
-                        <Form.Control 
-                           className="border-0" 
-                           type={showPassword ? "text" : "password"} 
-                           placeholder="Password" />
-                        <Button 
-                           className="showIcon bg-transparent text-dark border-0 shadow-none"
-                           onClick={(e) => {
-                              e.preventDefault();
-                              setShowPassword(!showPassword);
-                           }}
-                        >
-                           {showPassword ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}
-                        </Button>
-                     </div>
+                  <Form.Group className='mb-3' controlId='formBasicPassword'>
+                    <Form.Label>Password</Form.Label>
+                    <div className='formWrapper d-flex border border-gray-400 rounded'>
+                      <Form.Control
+                        className='border-0'
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder='Password'
+                      />
+                      <Button
+                        className='showIcon bg-transparent text-dark border-0 shadow-none'
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setShowPassword(!showPassword);
+                        }}>
+                        {showPassword ? (
+                          <AiOutlineEye />
+                        ) : (
+                          <AiOutlineEyeInvisible />
+                        )}
+                      </Button>
+                    </div>
                   </Form.Group>
                 </div>
                 <Button className='button-login' variant='secondary'>

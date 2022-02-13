@@ -6,6 +6,7 @@ import {
   GET_STYLES,
   GET_SERVICES_TYPE,
   GET_BUILDING_TYPE,
+  SET_APPOINTMENT_REVIEWS,
 } from '../constants';
 
 export const getBuildingType = () => (dispatch) => {
@@ -165,5 +166,12 @@ export const setStyles = (data) => {
   return {
     type: SET_STYLES,
     payload: newStyles,
+  };
+};
+
+export const setReviews = (payload) => {
+  return {
+    type: SET_APPOINTMENT_REVIEWS,
+    payload,
   };
 };
