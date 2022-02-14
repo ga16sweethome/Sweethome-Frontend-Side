@@ -32,10 +32,10 @@ const FilterCheckbox = (props) => {
           <Form.Check
             key={idx}
             type='checkbox'
-            checked={filter[title.toLowerCase()][element]}
-            value={element}
-            id={element}
-            label={element}
+            checked={element.value}
+            value={element.name}
+            id={element.id}
+            label={element.name}
             onChange={(e) => handleCheckbox(e)}
           />
         ))}

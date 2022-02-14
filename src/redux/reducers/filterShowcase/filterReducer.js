@@ -1,4 +1,6 @@
 import {
+  GET_SECTIONS_FILTER,
+  GET_STYLES_FILTER,
   RESET_FILTER,
   SET_FILTER_BY_SEARCH,
   SET_FILTER_BY_SECTIONS,
@@ -7,32 +9,24 @@ import {
 
 const initialState = {
   search: '',
-  sections: {
-    'Living Room': false,
-    'Dining Room': false,
-    Bedroom: false,
-    Kitchen: false,
-    Bathroom: false,
-    'Study/Office': false,
-    Outdoor: false,
-  },
-  styles: {
-    Modern: false,
-    Contemporary: false,
-    Minimalist: false,
-    Industrial: false,
-    Scandinavian: false,
-    Traditional: false,
-    Natural: false,
-    Rustic: false,
-    Bohemian: false,
-  },
-  pages: [],
+  sections: [],
+  styles: [],
+  pages: '',
 };
 
 const filterReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case GET_SECTIONS_FILTER:
+      return {
+        ...state,
+        sections: payload,
+      };
+    case GET_STYLES_FILTER:
+      return {
+        ...state,
+        styles: payload,
+      };
     case SET_FILTER_BY_SEARCH:
       return {
         ...state,

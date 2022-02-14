@@ -5,6 +5,7 @@ import {
   GET_STYLES,
   GET_SERVICES_TYPE,
   GET_BUILDING_TYPE,
+  SET_APPOINTMENT_REVIEWS,
 } from '../../constants';
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
     result: null,
     error: false,
   },
+  reviews: {},
 };
 
 const appointmentForm = (state = initialState, action) => {
@@ -83,6 +85,14 @@ const appointmentForm = (state = initialState, action) => {
         styles: {
           ...state.styles,
           result: payload,
+        },
+      };
+    case SET_APPOINTMENT_REVIEWS:
+      return {
+        ...state,
+        reviews: {
+          ...state.reviews,
+          ...payload,
         },
       };
     default:

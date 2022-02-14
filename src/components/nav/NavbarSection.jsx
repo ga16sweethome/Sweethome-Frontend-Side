@@ -1,8 +1,8 @@
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link, Route, Routes } from "react-router-dom";
-import Logo from "../../assets/icons/svg/SweetHome.svg";
-import { useState } from "react";
-import { Login, Register } from "../../components";
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/icons/svg/SweetHome.svg';
+import { useState } from 'react';
+import { Login, Register } from '../../components';
 
 const NavbarSection = (props) => {
   const background = props.background;
@@ -44,10 +44,10 @@ const NavbarSection = (props) => {
                 Login
               </Nav.Link>
               <Nav.Link
-                  onClick={(e) => {
-                     e.preventDefault();
-                     setShowRegister(true);
-                   }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowRegister(true);
+                }}
                 as={Link}
                 to='/signup'
                 className='fw-bold text-secondary'>
