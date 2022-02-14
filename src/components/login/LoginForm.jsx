@@ -11,10 +11,12 @@ const LoginForm = (props) => {
    const [showPassword, setShowPassword] = useState(false);
 
    const login = (values) => {
+      console.log(login)
       const data = {
          email: values.email,
          password: values.password,
       };
+      console.log(data)
 
       formik.setSubmitting(false);
    };
@@ -112,8 +114,13 @@ const LoginForm = (props) => {
                      )} 
                   </Form>
                 </div>
-                <Button className='button-login' variant='secondary'>
-                  <b>Login</b>
+                <Button 
+                  className='button-login fw-bold' 
+                  variant='secondary'
+                  type="submit"
+                  disabled={formik.isSubmitting}
+                >
+                  Login
                 </Button>
               </div>
               <div className='button-social'>

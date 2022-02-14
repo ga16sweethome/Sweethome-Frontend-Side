@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Form, Modal, Row, Col} from "react-bootstrap";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
@@ -6,19 +5,23 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Register = (props) => {
    const [showPassword, setShowPassword] = useState(false);
    const [showConfirm, setShowConfirm] = useState(false);
+   const navigate = useNavigate();
 
       const register = (values) => {
          console.log("form values", values);
          const data = {
-         first_name: values.firstName,
-         last_name: values.lastName,
+         firstName: values.firstName,
+         lastName: values.lastName,
          email: values.email,
          password: values.password,
          };
+      
          formik.setSubmitting(false);
       };
 
@@ -184,7 +187,12 @@ const Register = (props) => {
                            )} 
                         </Form>
                      </div>
-                     <Button className="button-signUp mx-auto my-3 fw-bold" variant="secondary">
+                     <Button 
+                        type="submit"
+                        className="button-signUp mx-auto my-3 fw-bold" 
+                        variant="secondary"
+                        disabled={formik.isSubmitting}
+                     >
                         Sign Up
                      </Button>
                   </div>

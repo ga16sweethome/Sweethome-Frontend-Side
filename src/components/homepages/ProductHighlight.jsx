@@ -1,20 +1,26 @@
 import kitchen from '../../assets/kitchen.jpg';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const ProductHighlight = () => {
   const [category, setCategory] = useState('');
   const [image, setImage] = useState( kitchen );
+  const navigate = useNavigate();
+
+  const direct = ()=>{
+     navigate("/showcase")
+  }
 
   useEffect(() => {
     axios
       .get(
-        `https://team-b-see-event.herokuapp.com/api/v1/event?category=${category}`
+        process.env.REACT_APP_BASE_API
       )
       .then((response) => {
-        const data = response.data.result[0].image;
-        setImage(data);
+         console.log(response)
+      //   const data = response.data.result[0].image;
+      //   setImage(data);
       });
   }, [category]); 
 
@@ -41,13 +47,13 @@ const ProductHighlight = () => {
                 </select>
               </div>
               <div className='seeAllButton'>
-                <button
-                  type='submit'
-                  className='btn px-4 btn-secondary fw-bold'
-                  linkas={Link}
-                  linkprops={{ to: '/' }}>
-                  See All
-                </button>
+                  <button
+                     type='submit'
+                     className='btn px-4 btn-secondary fw-bold'
+                     onClick={()=>direct()}
+                  >
+                     See All
+                  </button>
               </div>
             </div>
           </div>
