@@ -71,9 +71,9 @@ const EnquiryDetails = (props) => {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           dispatch(setReviews(values));
-          // props.onSubmit();
-          navigate('../reviews');
+          props.onSubmit();
           scrollToTop();
+          // navigate('./../date');
         }}
         initialValues={{
           buildingType: '',

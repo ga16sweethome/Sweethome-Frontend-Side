@@ -1,34 +1,36 @@
 import { useEffect, useState } from 'react';
 import { Container, Nav, Tab } from 'react-bootstrap';
-import { Outlet, useNavigate } from 'react-router-dom';
-// import {
-//   AppointmentDate,
-//   AppointmentReviews,
-//   FormEnquiryDetails,
-// } from '../components';
+import { Outlet, useNavigate, Link } from 'react-router-dom';
+import {
+  AppointmentDate,
+  AppointmentReviews,
+  FormEnquiryDetails,
+} from '../components';
 import Default from '../layouts/Default';
 
 const Appointment = () => {
-  const [activeTab, setActiveTab] = useState('enquiryDetails');
+  const [activeTab, setActiveTab] = useState('enquirydetails');
+  const [dateTab, setDateTab] = useState(false);
+  const [reviewTab, setReviewTab] = useState(false);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    switch (activeTab) {
-      case 'enquiryDetails':
-        navigate('enquirydetails');
-        break;
-      case 'appointmentDate':
-        navigate('date');
-        break;
-      case 'reviews':
-        navigate('reviews');
-        break;
-      default:
-        navigate('enquirydetails');
-        break;
-    }
-  }, [activeTab, navigate]);
+  // useEffect(() => {
+  //   switch (activeTab) {
+  //     case 'enquiryDetails':
+  //       navigate('enquirydetails');
+  //       break;
+  //     case 'appointmentDate':
+  //       navigate('date');
+  //       break;
+  //     case 'reviews':
+  //       navigate('reviews');
+  //       break;
+  //     default:
+  //       navigate('enquirydetails');
+  //       break;
+  //   }
+  // }, [activeTab, navigate]);
 
   // hanya sementara selama fitur login / register belum jalan
   useEffect(() => {
@@ -53,34 +55,44 @@ const Appointment = () => {
           activeKey={activeTab}
           onSelect={(k) => setActiveTab(k)}>
           <div className='bg-secondary'>
-            <Nav justify variant='tabs' className='bg-secondary container'>
+            <Nav
+              justify
+              variant='tabs'
+              defaultActiveKey='enquirydetails'
+              className='bg-secondary container'>
               <Nav.Item>
-                <Nav.Link className='fw-bold' eventKey='enquiryDetails'>
+                <Nav.Link className='fw-bold' eventKey='enquirydetails'>
                   Enquiry Details
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className='fw-bold' eventKey='appointmentDate'>
+                <Nav.Link
+                  className='fw-bold'
+                  eventKey='appointmentdate'
+                  disabled={!dateTab}>
                   Appointment Date
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link className='fw-bold' eventKey='reviews'>
+                <Nav.Link
+                  className='fw-bold'
+                  eventKey='reviews'
+                  disabled={!reviewTab}>
                   Reviews
                 </Nav.Link>
               </Nav.Item>
             </Nav>
           </div>
-          {/* <Tab.Content>
-            <Tab.Pane eventKey='enquiryDetails' className='container'>
+          <Tab.Content>
+            <Tab.Pane eventKey='enquirydetails' className='container'>
               <FormEnquiryDetails
                 onSubmit={() => {
-                  setActiveTab('appointmentDate');
+                  setActiveTab('appointmentdate');
                   setDateTab(true);
                 }}
               />
             </Tab.Pane>
-            <Tab.Pane eventKey='appointmentDate' className='container'>
+            <Tab.Pane eventKey='appointmentdate' className='container'>
               <AppointmentDate
                 onSubmit={() => {
                   setActiveTab('reviews');
@@ -91,7 +103,7 @@ const Appointment = () => {
             <Tab.Pane eventKey='reviews' className='container'>
               <AppointmentReviews />
             </Tab.Pane>
-          </Tab.Content> */}
+          </Tab.Content>
           <Outlet />
         </Tab.Container>
       </div>

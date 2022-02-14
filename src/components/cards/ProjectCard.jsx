@@ -1,8 +1,11 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { rupiahFormatter } from '../../utility/number';
 
-const ProjectCard = () => {
+const ProjectCard = (props) => {
+  const data = props.data;
+
   return (
     <div className='col-12 col-md-6'>
       <Link
@@ -10,18 +13,27 @@ const ProjectCard = () => {
         className='ProjectCard card text-decoration-none text-dark shadow-sm'>
         <Card.Img
           variant='top'
-          src='https://pertaniansehat.com/v01/wp-content/uploads/2015/08/default-placeholder.png'
+          src={data.gallery[0].picture}
         />
-        <Card.Body className='d-flex'>
-          <div className='left flex-grow-1'>
-            <Card.Title className='fw-bold'>
-              Natural Feel Living Room
-            </Card.Title>
-            <Card.Subtitle>CitraLand, Surabaya</Card.Subtitle>
+        <Card.Body>
+          <div className='d-flex justify-content-between'>
+            <Card.Title className='fw-bold mb-0'>{data.name}</Card.Title>
+            {data.project &&
+                <Card.Text className='estimated-time mb-0'>{data.project.totalDuration} weeks</Card.Text>
+            }
           </div>
-          <div className='right text-end'>
-            <Card.Text className='estimated-time'>2 Weeks</Card.Text>
-            <Card.Text>Rp.70,000,000</Card.Text>
+          <div className='d-flex justify-content-between'>
+          {data.project ? (
+            <Card.Text className='mb-0'>{data.project.appointment.address}</Card.Text>
+          ) : (
+            <Card.Text className='mb-0'></Card.Text>
+          )
+          }
+            {data.project && 
+              <Card.Text>
+                {rupiahFormatter(parseInt(data.project.totalPrice)).replace(',00', '')}
+              </Card.Text>
+            }
           </div>
         </Card.Body>
       </Link>

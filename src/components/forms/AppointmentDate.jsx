@@ -6,7 +6,10 @@ import { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import { BiRightArrowAlt } from 'react-icons/bi';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { setReviews } from '../../redux/actionCreators/appointmentAction';
+import { scrollToTop } from '../../utility/scroll';
 // import * as Yup from 'yup';
 
 // const validationSchema = Yup.object().shape({
@@ -14,18 +17,19 @@ import { useSelector } from 'react-redux';
 //   time: Yup.string().required('Required!'),
 // });
 
-const AppointmentDate = () => {
+const AppointmentDate = (props) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [date, setDate] = useState(moment(selectedDate).format('yyyy-MM-DD'));
   const [time, setTime] = useState();
   const [timeSlot, setTimeSlot] = useState(['']);
 
   const { serviceType } = useSelector((state) => state.appointment.reviews);
+  const dispatch = useDispatch();
 
   console.log(serviceType);
 
   useEffect(() => {
-    setDate(moment(selectedDate).format('yyyy-MM-DD'));
+    setDate(selectedDate);
   }, [selectedDate]);
 
   useEffect(() => {
@@ -38,10 +42,12 @@ const AppointmentDate = () => {
           servicetype: serviceType,
         },
       }).then((response) => {
-        setTimeSlot(response);
+        setTimeSlot(response.data);
       });
     }
   }, [date, serviceType]);
+
+  console.log(timeSlot);
 
   // const times = [
   //   '09.00am - 10.00am',
@@ -56,6 +62,9 @@ const AppointmentDate = () => {
       time,
     };
     console.log(data);
+    props.onSubmit();
+    scrollToTop();
+    dispatch(setReviews(data));
   };
 
   return (
@@ -101,9 +110,9 @@ const AppointmentDate = () => {
                 key={idx}
                 type='radio'
                 name='time-slot'
-                disabled={false}
+                disabled={time.isFull}
                 id={`timeSlot-${time.id}`}
-                label={time.time}
+                label={`${time.time} ${time.isFull ? 'Full Booked' : ''}`}
                 value={time.time}
                 onChange={(e) => e.target.checked && setTime(e.target.value)}
               />

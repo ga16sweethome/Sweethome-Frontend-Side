@@ -90,7 +90,10 @@ const appointmentForm = (state = initialState, action) => {
     case SET_APPOINTMENT_REVIEWS:
       return {
         ...state,
-        reviews: payload,
+        reviews: {
+          ...state.reviews,
+          ...payload,
+        },
       };
     default:
       return state;

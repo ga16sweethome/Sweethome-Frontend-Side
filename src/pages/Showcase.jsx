@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Breadcrumb, Placeholder } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {
@@ -11,20 +12,40 @@ import {
 import Default from '../layouts/Default';
 import { HomeIcons } from '../assets';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetFilter } from '../redux/actionCreators/filterAction';
+import {
+  getSectionsFilter,
+  getStylesFilter,
+  resetFilter,
+} from '../redux/actionCreators/filterAction';
+import { useEffect, useState } from 'react';
 
 const Showcase = () => {
   const { sections, styles } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+  const [contents, setContents] = useState([]);
+  const [pages, setPages] = useState(0);
 
-  const sectionsCategories = Object.keys(sections);
-  const stylesCategories = Object.keys(styles);
+  useEffect(() => {
+    dispatch(getSectionsFilter());
+    dispatch(getStylesFilter());
 
+    axios({
+      method: 'get',
+      url: `${process.env.REACT_APP_BASE_API}showcase?page=1`,
+    })
+      .then((response) => {
+        setContents(response.data.data);
+        setPages(response.data.jumlahPage);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
+  }, [dispatch]);
+ 
   const isFiltered =
     Object.values(sections).find((value) => value === true) ||
     Object.values(styles).find((value) => value === true);
-
-  const isLoading = false;
 
   return (
     <>
@@ -99,25 +120,21 @@ const Showcase = () => {
                   ) : (
                     <h5 className='fw-bold fs-6'>All Projects</h5>
                   )}
-                  <FilterCheckbox title='Sections' data={sectionsCategories} />
-                  <FilterCheckbox title='Styles' data={stylesCategories} />
+                  <FilterCheckbox title='Sections' data={sections.result} />
+                  <FilterCheckbox title='Styles' data={styles.result} />
                 </div>
                 <div className='projects col'>
                   <div className='search ms-auto mb-3 ps-lg-3 w-50'>
                     <InputSearch />
                   </div>
                   <div className='row g-4 mb-4'>
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
+                    {contents &&
+                      contents.map((content, idx) => (
+                        <ProjectCard data={content} key={idx} />
+                      ))}
                   </div>
                   <div className='d-flex justify-content-end mb-5'>
-                    <PaginationComponents />
+                    <PaginationComponents pages={pages} />
                   </div>
                 </div>
               </div>

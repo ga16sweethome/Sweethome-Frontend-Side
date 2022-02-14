@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
 
-const PaginationComponents = () => {
-  const lastPage = 8;
+const PaginationComponents = (props) => {
+  const lastPage = props.pages;
   const pages = [];
 
   const [activePage, setActivePage] = useState(1);
