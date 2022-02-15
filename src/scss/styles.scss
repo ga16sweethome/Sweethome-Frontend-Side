@@ -110,3 +110,7 @@ input[type='number'] {
 @import './pages/Appointment.scss';
 
 @import './customs/custom_datepicker';
+
+html {
+  scroll-behavior: none;
+}

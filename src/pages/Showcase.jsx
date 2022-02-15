@@ -18,6 +18,7 @@ import {
   resetFilter,
 } from '../redux/actionCreators/filterAction';
 import { useEffect, useState } from 'react';
+import { scrollToTop } from '../utility/scroll';
 
 const Showcase = () => {
   const { sections, styles } = useSelector((state) => state.filter);
@@ -25,6 +26,10 @@ const Showcase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [contents, setContents] = useState([]);
   const [pages, setPages] = useState(0);
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   useEffect(() => {
     dispatch(getSectionsFilter());
@@ -42,7 +47,7 @@ const Showcase = () => {
         setIsLoading(false);
       });
   }, [dispatch]);
- 
+
   const isFiltered =
     Object.values(sections).find((value) => value === true) ||
     Object.values(styles).find((value) => value === true);
@@ -55,7 +60,7 @@ const Showcase = () => {
             <span className='text-ash me-3'>
               <HomeIcons />
             </span>
-            <Breadcrumb.Item linkas={Link} linkprops={{ to: '/' }}>
+            <Breadcrumb.Item linkAs={Link} linkProps={{ to: '/' }}>
               Home
             </Breadcrumb.Item>
             <Breadcrumb.Item active>Showcase</Breadcrumb.Item>
